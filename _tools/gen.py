@@ -56,6 +56,12 @@ for side, cfg in SIDES.items():
                 OLD[f"projects/{p[0]}.html"] = f"{side}/projects/{p[0]}.html"
 
 def rel(depth): return "../" * depth
+X_URL = "https://x.com/DanJKlabunde"
+X_HANDLE = "@DanJKlabunde"
+X_SVG = '<svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
+def x_link(cls="x-link", text=True):
+    t = f'<span>{X_HANDLE}</span>' if text else ''
+    return f'<a class="{cls}" href="{X_URL}" target="_blank" rel="noopener" title="AI video breakdowns on X: {X_HANDLE}" aria-label="{X_HANDLE} on X">{X_SVG}{t}</a>'
 FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">"""
@@ -92,7 +98,7 @@ def header(side, depth, active=None):
 <header class="site-header">
   <div class="wrap nav-row">
     <a class="brand" href="{s}"><img src="{r}assets/{cfg['logo']}" alt="{cfg['name']} logo" class="brand-mark{cfg['logo_cls']}"><span class="brand-text">{cfg['name']}<small>{cfg['sub']}</small></span></a>
-    <nav><ul class="nav">{links}</ul></nav>
+    <nav class="nav-wrap"><ul class="nav">{links}</ul>{x_link("x-link nav-x")}</nav>
   </div>
 </header>
 """
@@ -109,7 +115,7 @@ def footer(side, depth):
       <p><a href="{r}{cfg['other']}/">Visit {o['name']} →</a><br><a href="{r}index.html">← Back to the landing page</a></p>
     </div>
     <div><h4>Explore</h4><ul>{cols}</ul></div>
-    <div><h4>Contact</h4><ul><li><a href="{contact}">Get in touch</a></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: social links</li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="{contact}">Get in touch</a></li><li><a href="{X_URL}" target="_blank" rel="noopener">X: {X_HANDLE}</a> <span class="muted small">(AI video breakdowns)</span></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: other social links</li></ul></div>
   </div>
   <div class="wrap footer-base">© 2026 Daniel Klabunde · Klabunde Media Co.</div>
 </footer>
@@ -168,6 +174,7 @@ def landing():
         <span class="split-enter">Enter →</span>
       </a>
     </div>
+    <p class="landing-x">AI video critique &amp; breakdowns on X {x_link("x-link")}</p>
   </div>
 </main>
 </body>
@@ -205,6 +212,13 @@ def home(side):
     <div class="svc-grid">""" + "".join(f"""<div class="svc"><h3>{t}</h3><p class="ph-text">Placeholder: one or two lines describing this service.</p></div>""" for t in ["Commercial &amp; brand films", "Social content", "Editing &amp; post-production", "Color grading"]) + """</div>
     <p style="margin-top:28px"><a class="text-link" href="services/">All services →</a></p></div></section>"""
     cta = "contact/" if side == "media-co" else "about/#contact"
+    x_cta = f"""<section class="x-cta"><div class="wrap x-cta-inner">
+    <div class="x-cta-mark">{X_SVG}</div>
+    <div class="x-cta-text"><div class="eyebrow">On X</div>
+      <h2>I break down AI-generated video on X.</h2>
+      <p>Frame-by-frame critiques of motion, physics, continuity and timing: what holds up, what breaks, and what an editor would fix.</p></div>
+    <a class="btn btn-accent" href="{X_URL}" target="_blank" rel="noopener">Follow {X_HANDLE}</a>
+</div></section>"""
     body = f"""<section class="side-hero">
   <!-- HERO IMAGE: assets/{cfg['hero']} (its logo is part of the image). -->
   <div class="side-hero-bg" style="background-image:url('{r}assets/{cfg['hero']}')"></div><div class="side-hero-overlay"></div>
@@ -215,6 +229,7 @@ def home(side):
     <a href="#reel" class="btn">Watch the {'reel' if side == 'daniel' else 'showreel'}</a>
   </div>
 </section>
+{x_cta if side == "daniel" else ""}
 <section id="reel" class="section reel"><div class="wrap">
     <div class="section-head"><div class="eyebrow">Showreel</div><h2>{cfg['reel_title']}</h2></div>
     {video_slot(*cfg['reel'])}
@@ -306,7 +321,7 @@ def project(side, cat, pslug, ptitle, psub, nxt):
 
 # ---------------- STATIC PAGES ----------------
 def contact_card(side):
-    yt = '<dt>YouTube</dt><dd><a href="https://www.youtube.com/@danklabunde">@danklabunde</a></dd>' if side == "daniel" else '<dt>Social</dt><dd class="ph-text">Placeholder: company social links</dd>'
+    yt = f'<dt>X</dt><dd><a href="{X_URL}">{X_HANDLE}</a></dd><dt>YouTube</dt><dd><a href="https://www.youtube.com/@danklabunde">@danklabunde</a></dd>' if side == "daniel" else '<dt>Social</dt><dd class="ph-text">Placeholder: company social links</dd>'
     return f"""<div class="details-card"><dl>
         <dt>Email</dt><dd class="ph-text">Placeholder: email address</dd>{yt}
         <dt>Instagram</dt><dd class="ph-text">Placeholder: handle</dd>

@@ -268,3 +268,25 @@ body.side-landing{background:var(--bg)}
 .dk-panel .panel-bg{background-position:78% 25%;filter:blur(2px) brightness(.9)} /* header-clean.jpg = lake with its monogram painted out, so the DK logo isn't doubled */
 .dk-panel .panel-shade{background:radial-gradient(ellipse at center,rgba(20,21,22,.5),rgba(20,21,22,.35))}
 .dk-panel:hover .panel-bg{filter:blur(2px) brightness(1)}
+
+/* X (@DanJKlabunde) links */
+.x-icon{width:15px;height:15px;flex:none}
+.x-link{display:inline-flex;align-items:center;gap:8px;color:var(--text)}
+.x-link:hover{color:#e07b3e}
+.nav-wrap{display:flex;align-items:center;gap:30px}
+.nav-x{border:1px solid var(--line);padding:7px 12px;font-size:12.5px;font-weight:500;letter-spacing:.03em;border-radius:2px;transition:.2s}
+.nav-x:hover{border-color:#e07b3e}
+.small{font-size:12px}
+.landing-x{margin-top:26px;font-size:13px;letter-spacing:.06em;color:var(--muted);display:flex;justify-content:center;align-items:center;gap:12px}
+.landing-x .x-link{border-bottom:1px solid transparent;padding-bottom:2px}
+.landing-x .x-link:hover{border-bottom-color:#e07b3e}
+.x-cta{background:linear-gradient(90deg,rgba(224,123,62,.10),rgba(224,123,62,.02) 60%),var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.x-cta-inner{display:grid;grid-template-columns:72px 1fr auto;gap:36px;align-items:center;padding-top:40px;padding-bottom:40px}
+.x-cta-mark{width:72px;height:72px;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;color:var(--text)}
+.x-cta-mark .x-icon{width:30px;height:30px}
+.x-cta h2{font-size:32px;margin-bottom:6px}
+.x-cta p{margin:0;color:var(--muted);font-size:15.5px;max-width:640px}
+.x-cta .eyebrow{color:#e07b3e;margin-bottom:10px}
+.btn-accent{border-color:#e07b3e;color:#e07b3e;white-space:nowrap}
+.btn-accent:hover{background:#e07b3e;color:#1b1b1c}
+@media (max-width:900px){.x-cta-inner{grid-template-columns:1fr}}
