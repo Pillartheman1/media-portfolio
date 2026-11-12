@@ -244,3 +244,13 @@ body.side-landing{background:#151617}
 .side-media-co .brand .brand-text{font-size:0}
 .side-media-co .brand .brand-text small{font-size:10px;margin-left:4px}
 .side-daniel .util-row .switch img{display:none}
+
+/* Landing v2: clean charcoal, no photo (Daniel, 2026-11-12) */
+body.side-landing{background:var(--bg)}
+.landing{background:var(--bg)}
+.split{backdrop-filter:none;-webkit-backdrop-filter:none;border-color:var(--line)}
+.split-panel{background:var(--bg);transition:background .35s}
+.split-panel.kmc-panel{background:#24252a}
+.split-panel+.split-panel{border-left:1px solid rgba(239,240,235,.22)}
+.split-panel:hover{background:#26272a}
+.split-panel.kmc-panel:hover{background:#272a30}

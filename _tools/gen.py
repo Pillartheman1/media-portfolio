@@ -149,9 +149,6 @@ def page_head(side, depth, crumbs, h1, lede):
 def landing():
     d, m = SIDES["daniel"], SIDES["media-co"]
     body = f"""<main class="landing">
-  <!-- Background: assets/header.jpg (the lake header). -->
-  <div class="landing-bg" style="background-image:url('assets/header.jpg')"></div>
-  <div class="landing-overlay"></div>
   <div class="landing-inner">
     <div class="landing-kicker">Choose a side</div>
     <div class="split">
@@ -162,8 +159,7 @@ def landing():
         <span class="split-enter">Enter →</span>
       </a>
       <a class="split-panel kmc-panel" href="media-co/">
-        <div class="panel-bg" style="background-image:url('assets/kmc-hero.jpg')"></div>
-        <!-- LOGO SLOT: assets/kmc-logo.png = white transparent KLABUNDE / MEDIA COMPANY wordmark. Panel background: assets/kmc-hero.jpg. -->
+        <!-- LOGO SLOT: assets/kmc-logo.png = white transparent KLABUNDE / MEDIA COMPANY wordmark. -->
         <img src="assets/kmc-logo.png" alt="Klabunde Media Company wordmark" class="split-logo kmc">
         <h2>Klabunde Media Co.</h2>
         <p>Business projects: commercial, brand and social video production.</p>
