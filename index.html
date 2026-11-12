@@ -3,136 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daniel Klabunde · Klabunde Media</title>
-<meta name="description" content="Daniel Klabunde. Video editing, color and cinematic storytelling.">
+<title>Daniel Klabunde · Klabunde Media Co.</title>
+<meta name="description" content="Daniel Klabunde and Klabunde Media Co. Video editing, color and cinematic storytelling.">
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
-<header class="site-header">
-  <div class="wrap nav-row">
-    <a class="brand" href="index.html"><img src="assets/monogram.png" alt="" class="brand-mark"><span class="brand-text">Daniel Klabunde<small>Klabunde Media</small></span></a>
-    <nav><ul class="nav"><li><a href="commercial/">Commercial &amp; Brand</a></li><li><a href="cinematic/">Cinematic &amp; Narrative</a></li><li><a href="color/">Color Grading</a></li><li><a href="motion-vfx/">Motion Graphics &amp; VFX</a></li><li><a href="ai-evaluation/">AI Video Evaluation</a></li><li><a href="about/">About</a></li></ul></nav>
-  </div>
-</header>
-<main><section class="hero">
-  <!-- HEADER IMAGE SLOT: assets/header.jpg (swap the file to replace it; keep the name). -->
-  <div class="hero-img" style="background-image:url('assets/header.jpg')"></div>
-  <div class="hero-overlay"></div>
-  <div class="wrap hero-content">
-    <div class="eyebrow light">Klabunde Media</div>
-    <h1>Daniel Klabunde</h1>
-    <p class="hero-sub">Video editing, color and cinematic storytelling.</p>
-    <a href="#reel" class="btn">Watch the reel</a>
-  </div>
-</section>
-
-<section id="reel" class="section reel">
-  <div class="wrap">
-    <div class="section-head"><div class="eyebrow">Showreel</div><h2>Main Cinematic Compilation</h2></div>
-    <div class="video-frame" data-slot="video">
-      <!-- VIDEO SLOT: replace this whole <div class="video-placeholder"> with one of:
-           <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="..." allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-           <iframe src="https://player.vimeo.com/video/VIDEO_ID" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-           <video src="assets/video/FILE.mp4" poster="assets/video/FILE.jpg" controls playsinline></video> -->
-      <div class="video-placeholder">
-        <div class="play"></div>
-        <div class="ph-label">Placeholder: main cinematic compilation</div>
-        <div class="ph-note">16:9 slot, ready for a YouTube or Vimeo embed or a local MP4</div>
-      </div>
-    </div>
-    <p class="caption ph-text">Placeholder: one line about the reel (length, what's in it, tools used).</p>
-  </div>
-</section>
-
-<section class="section intro">
-  <div class="wrap intro-grid">
-    <div><div class="eyebrow">About the work</div><h2>Stories, not collages.</h2></div>
-    <div class="prose">
-      <p class="ph-text">Placeholder: short intro. Two or three sentences about how Daniel approaches editing, pacing and color, and what visitors will find on this site.</p>
-      <p>Every project here has its own page with the brief, the role, the tools, and the full story of how it came together, including what I'd do differently next time.</p>
-      <a class="text-link" href="about/">More about me →</a>
+<body class="side-landing">
+<main class="landing">
+  <!-- Background: assets/header.jpg (the lake header). -->
+  <div class="landing-bg" style="background-image:url('assets/header.jpg')"></div>
+  <div class="landing-overlay"></div>
+  <div class="landing-inner">
+    <div class="landing-kicker">Choose a side</div>
+    <div class="split">
+      <a class="split-panel" href="daniel/">
+        <img src="assets/monogram.png" alt="DK monogram" class="split-logo dk">
+        <h2>Daniel Klabunde</h2>
+        <p>Personal projects: cinematic work, color, motion and AI video evaluation.</p>
+        <span class="split-enter">Enter →</span>
+      </a>
+      <a class="split-panel kmc-panel" href="media-co/">
+        <div class="panel-bg" style="background-image:url('assets/kmc-hero.jpg')"></div>
+        <!-- LOGO SLOT: assets/kmc-logo.png = white transparent KLABUNDE / MEDIA COMPANY wordmark. Panel background: assets/kmc-hero.jpg. -->
+        <img src="assets/kmc-logo.png" alt="Klabunde Media Company wordmark" class="split-logo kmc">
+        <h2>Klabunde Media Co.</h2>
+        <p>Business projects: commercial, brand and social video production.</p>
+        <span class="split-enter">Enter →</span>
+      </a>
     </div>
   </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head"><div class="eyebrow">Selected work</div><h2>Featured projects</h2></div>
-    <div class="features"><article class="feature">
-        <a href="projects/commercial-01.html" class="thumb ph-thumb"><span>Placeholder still</span></a>
-        <div class="feature-body">
-          <div class="eyebrow">Commercial &amp; Brand</div>
-          <h3><a href="projects/commercial-01.html">Placeholder: Product Launch Film</a></h3>
-          <p class="ph-text">Placeholder: a two-sentence summary of the project and the story behind it goes here.</p>
-          <a class="text-link" href="projects/commercial-01.html">Read the story →</a>
-        </div>
-      </article><article class="feature">
-        <a href="projects/cinematic-01.html" class="thumb ph-thumb"><span>Placeholder still</span></a>
-        <div class="feature-body">
-          <div class="eyebrow">Cinematic &amp; Narrative</div>
-          <h3><a href="projects/cinematic-01.html">Placeholder: Main Cinematic Compilation</a></h3>
-          <p class="ph-text">Placeholder: a two-sentence summary of the project and the story behind it goes here.</p>
-          <a class="text-link" href="projects/cinematic-01.html">Read the story →</a>
-        </div>
-      </article><article class="feature">
-        <a href="projects/color-01.html" class="thumb ph-thumb"><span>Placeholder still</span></a>
-        <div class="feature-body">
-          <div class="eyebrow">Color Grading</div>
-          <h3><a href="projects/color-01.html">Placeholder: Moody Exterior Grade</a></h3>
-          <p class="ph-text">Placeholder: a two-sentence summary of the project and the story behind it goes here.</p>
-          <a class="text-link" href="projects/color-01.html">Read the story →</a>
-        </div>
-      </article></div>
-  </div>
-</section>
-
-<section class="section alt">
-  <div class="wrap">
-    <div class="section-head"><div class="eyebrow">Browse</div><h2>Types of work</h2></div>
-    <div class="cat-list"><a class="cat-row" href="commercial/">
-        <span class="cat-num">01</span>
-        <span class="cat-body"><h3>Commercial &amp; Brand</h3><p>Product films, brand spots and social campaigns, with notes on the brief, the constraints and the decisions behind each cut.</p></span>
-        <span class="cat-meta">2 projects <span class="arrow">→</span></span>
-      </a><a class="cat-row" href="cinematic/">
-        <span class="cat-num">02</span>
-        <span class="cat-body"><h3>Cinematic &amp; Narrative</h3><p>Short films, travel pieces and story-driven edits, where pacing, sound and structure carry the work.</p></span>
-        <span class="cat-meta">2 projects <span class="arrow">→</span></span>
-      </a><a class="cat-row" href="color/">
-        <span class="cat-num">03</span>
-        <span class="cat-body"><h3>Color Grading</h3><p>Before-and-after grades in DaVinci Resolve, with the look, the reference and the node approach written out.</p></span>
-        <span class="cat-meta">2 projects <span class="arrow">→</span></span>
-      </a><a class="cat-row" href="motion-vfx/">
-        <span class="cat-num">04</span>
-        <span class="cat-body"><h3>Motion Graphics &amp; VFX</h3><p>Titles, tracking, rotoscoping and compositing, each with a breakdown of how the shot was built.</p></span>
-        <span class="cat-meta">2 projects <span class="arrow">→</span></span>
-      </a><a class="cat-row" href="ai-evaluation/">
-        <span class="cat-num">05</span>
-        <span class="cat-body"><h3>AI Video Evaluation</h3><p>Written critiques of AI-generated video, scored against a rubric: motion, physics, continuity, lighting and what an editor would fix.</p></span>
-        <span class="cat-meta">2 projects <span class="arrow">→</span></span>
-      </a></div>
-  </div>
-</section>
-
-<section class="section cta">
-  <div class="wrap cta-inner">
-    <h2>Have a project in mind?</h2>
-    <a class="btn" href="about/#contact">Get in touch</a>
-  </div>
-</section>
-</main><footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="footer-brand"><img src="assets/monogram.png" alt="" class="brand-mark"> Klabunde Media</div>
-      <p class="muted">Video editing, color grading and cinematic storytelling by Daniel Klabunde.</p>
-    </div>
-    <div><h4>Work</h4><ul><li><a href="commercial/">Commercial &amp; Brand</a></li><li><a href="cinematic/">Cinematic &amp; Narrative</a></li><li><a href="color/">Color Grading</a></li><li><a href="motion-vfx/">Motion Graphics &amp; VFX</a></li><li><a href="ai-evaluation/">AI Video Evaluation</a></li><li><a href="about/">About</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li><a href="about/#contact">Get in touch</a></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: YouTube / Instagram links</li></ul></div>
-  </div>
-  <div class="wrap footer-base">© 2026 Daniel Klabunde · Klabunde Media</div>
-</footer>
+</main>
 </body>
 </html>

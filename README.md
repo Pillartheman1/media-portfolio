@@ -2,14 +2,18 @@
 
 Static site (plain HTML/CSS, tiny JS) for Klabunde Media, hosted on GitHub Pages.
 
-## Swapping placeholders
-- **Header image:** `assets/header.jpg` (1918×1080, cropped from Daniel's screenshot). Replace with the full-res original anytime, keeping the filename.
-- **Main cinematic compilation:** in `index.html`, find `VIDEO SLOT` and replace the `video-placeholder` div with a YouTube/Vimeo `<iframe>` or a `<video>` tag (examples are in the comment). Each project page has the same slot.
-- **Before/after (Color Grading pages):** replace the two `.ba-pane` divs with `<img>` stills.
-- Any text styled as *Placeholder: …* is a stand-in to rewrite.
-
 ## Structure
-- `index.html`: home (hero, reel, intro, featured, categories)
-- `commercial/`, `cinematic/`, `color/`, `motion-vfx/`, `ai-evaluation/`, `about/`: section pages
-- `projects/*.html`: project write-ups
-- `_tools/gen.py`: regenerates all pages from one template (`python3 _tools/gen.py`). Edits made directly to the HTML are overwritten if you re-run it.
+- `index.html`: split landing (lake background, two clickable logo panels)
+- `daniel/`: personal side (cinematic compilation, Cinematic & Narrative, Color Grading, Motion & VFX, AI Video Evaluation, About Daniel)
+- `media-co/`: Klabunde Media Co. side (company showreel, Commercial & Brand, Social Content, Services, About, Contact)
+- `*/projects/*.html`: project write-ups (story template)
+- Old pre-split URLs (`/commercial/`, `/projects/color-01.html`, ...) are redirect stubs.
+- `_tools/gen.py` regenerates every page (`python3 _tools/gen.py`); hand edits to generated HTML are overwritten.
+
+## Swapping placeholders
+- **Lake header:** `assets/header.jpg` (landing background + Daniel hero).
+- **KMC wordmark:** `assets/kmc-logo.png` (PLACEHOLDER; white on transparent). **KMC hero:** `assets/kmc-hero.jpg` (PLACEHOLDER).
+  With the real files: `python3 _tools/import_kmc_assets.py HERO.png WORDMARK_BLACK.png [VERTICAL.png]`.
+- **Videos:** search for `VIDEO SLOT` and replace the placeholder div with an `<iframe>` or `<video>`.
+- **Before/after:** replace the two `.ba-pane` divs on Color Grading pages with `<img>` stills.
+- Text styled *Placeholder: …* is a stand-in.
