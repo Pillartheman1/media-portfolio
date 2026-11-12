@@ -1,7 +1,7 @@
 /* Klabunde Media portfolio
    Palette: charcoal base (Daniel's request) + YouTube channel @danklabunde (banner/avatar) + header image accents.
-   --text / --muted / --muted-2 sampled from the channel avatar; --line-warm from the banner; --accent is the banner's warm
-   hue (30°) brightened; --slate is the header image's slate-blue sky (provisional until the full-res header is sampled). */
+   --text / --muted / --muted-2 sampled from the channel avatar; --line-warm from the banner; --accent is the header
+   sunburst's hue (22°, rays median #6a4732) brightened; --slate / --slate-deep sampled from the header's sky. */
 :root{
   --bg:#202123;          /* charcoal page background */
   --bg-2:#26272a;        /* alternate section band */
@@ -13,9 +13,10 @@
   --text:#eff0eb;
   --muted:#aeb0a7;
   --muted-2:#878982;
-  --accent:#e08f3e;
-  --accent-soft:rgba(224,143,62,.14);
-  --slate:#6e7f93;
+  --accent:#e07b3e;
+  --accent-soft:rgba(224,123,62,.14);
+  --slate:#738189;      /* header sky, mid */
+  --slate-deep:#42565e; /* header sky, upper */
   --serif:"Cormorant Garamond",Georgia,serif;
   --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --wrap:1200px;
@@ -53,7 +54,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:3px;font-size:.85
 .hero-img{position:absolute;inset:0;background-size:cover;background-position:center 30%;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,33,35,.15) 0%,rgba(32,33,35,.35) 55%,var(--bg) 100%)}
 .hero-content{position:relative;padding-bottom:56px;width:100%}
-.hero h1{font-size:84px;margin-bottom:8px;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+.hero h1{font-size:68px;margin-bottom:8px;text-shadow:0 2px 30px rgba(0,0,0,.5)}
 .hero-sub{font:300 20px/1.5 var(--sans);color:var(--text);opacity:.9;margin-bottom:28px}
 .btn{display:inline-block;border:1px solid var(--line-strong);color:var(--text);padding:13px 30px;font:500 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;transition:.2s}
 .btn:hover{border-color:var(--accent);background:var(--accent);color:#1b1b1c}
@@ -69,7 +70,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:3px;font-size:.85
 .video-frame{position:relative;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--line);overflow:hidden}
 .video-frame iframe,.video-frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-  background:radial-gradient(ellipse at 80% 10%,rgba(224,143,62,.16),transparent 55%),radial-gradient(ellipse at 20% 100%,rgba(110,127,147,.14),transparent 60%),var(--surface)}
+  background:radial-gradient(ellipse at 80% 10%,rgba(224,123,62,.16),transparent 55%),radial-gradient(ellipse at 20% 100%,rgba(66,86,94,.22),transparent 60%),var(--surface)}
 .play{width:84px;height:84px;border:1px solid var(--line-strong);border-radius:50%;position:relative}
 .play:after{content:"";position:absolute;left:34px;top:26px;border-left:22px solid var(--text);border-top:16px solid transparent;border-bottom:16px solid transparent}
 .ph-label{font:500 22px/1.3 var(--serif);letter-spacing:.03em}
@@ -109,7 +110,7 @@ code{background:var(--surface-2);padding:1px 6px;border-radius:3px;font-size:.85
 .cta-inner{display:flex;flex-direction:column;align-items:center;gap:12px}
 
 /* page head */
-.page-head{padding:72px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+.page-head{padding:72px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(66,86,94,.20),var(--bg))}
 .page-head h1{font-size:60px}
 .lede{font:300 20px/1.6 var(--sans);color:var(--muted);max-width:780px;margin:0}
 .crumbs{font-size:13px;color:var(--muted-2);letter-spacing:.06em;margin-bottom:22px}
