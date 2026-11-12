@@ -152,13 +152,15 @@ def landing():
   <div class="landing-inner">
     <div class="landing-kicker">Choose a side</div>
     <div class="split">
-      <a class="split-panel" href="daniel/">
+      <a class="split-panel dk-panel" href="daniel/">
+        <div class="panel-bg" style="background-image:url('assets/header-clean.jpg')"></div><div class="panel-shade"></div>
         <img src="assets/monogram.png" alt="DK monogram" class="split-logo dk">
         <h2>Daniel Klabunde</h2>
         <p>Personal projects: cinematic work, color, motion and AI video evaluation.</p>
         <span class="split-enter">Enter →</span>
       </a>
       <a class="split-panel kmc-panel" href="media-co/">
+        <div class="panel-bg" style="background-image:url('assets/kmc-hero.jpg')"></div><div class="panel-shade"></div>
         <!-- LOGO SLOT: assets/kmc-logo.png = white transparent KLABUNDE / MEDIA COMPANY wordmark. -->
         <img src="assets/kmc-logo.png" alt="Klabunde Media Company wordmark" class="split-logo kmc">
         <h2>Klabunde Media Co.</h2>
