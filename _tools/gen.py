@@ -175,6 +175,56 @@ ZAIDI = dict(
     differently=None,
 )
 
+
+def yt_proj(slug, title, yt_id, category_name, kind):
+    """A personal YouTube video. Titles are the real YouTube titles; write-ups stay limited to that fact."""
+    poster = f"assets/video/youtube/{yt_id}.jpg"
+    subtitle = f"A {kind} from my personal YouTube channel."
+    overview = f'A {kind} from my personal YouTube channel, titled "{title}."'
+    return dict(
+        slug=slug,
+        title=title,
+        subtitle=subtitle,
+        summary=subtitle,
+        overview=overview,
+        category_name=category_name,
+        youtube=yt_id,
+        thumb=poster,
+        poster=poster,
+        videos=[],
+        stills=[],
+        role="Placeholder: role",
+        tools="Placeholder: tools",
+        timeline="Placeholder: timeline",
+        deliverables="One YouTube video",
+        year="Placeholder: year",
+        challenge=None,
+        approach=None,
+        differently=None,
+    )
+
+# Personal YouTube — titles from YouTube oEmbed, grouped as Daniel listed them.
+# Vlogs & Storytelling
+YT_POV_PRODUCTION = yt_proj("pov-running-a-production-company", "POV: Running a production company at 21 years old", "MSwFTPgla-8", "Vlogs &amp; Storytelling", "vlog")
+YT_ONE_WEEK_CEO = yt_proj("one-week-with-a-production-company-ceo", "One week with a production company CEO", "Sqz7dxV9S0Q", "Vlogs &amp; Storytelling", "vlog")
+YT_BATMAN = yt_proj("i-turned-myself-into-batman", "I turned myself into Batman", "J3RDdiJIqKI", "Vlogs &amp; Storytelling", "vlog")
+YT_FOUND_MY_PASSION = yt_proj("i-finally-found-my-passion", "I finally found my passion", "K8_2jLyZvbU", "Vlogs &amp; Storytelling", "vlog")
+YT_RESOLUTIONS = yt_proj("how-to-get-your-resolutions-to-stick", "How to get your resolutions to stick (don't make them)", "8wUFfLX5KlE", "Vlogs &amp; Storytelling", "vlog")
+# Motion & VFX (motion graphics)
+YT_DELETED_INSTAGRAM = yt_proj("i-deleted-instagram", "I deleted Instagram and it changed my life forever", "xurQZXO8B2I", "Motion &amp; VFX", "motion graphics video")
+YT_DOPAMINE_DETOX = yt_proj("dopamine-detox-doesnt-work", "Dopamine Detox doesn't work", "0Hd6guhOTTE", "Motion &amp; VFX", "motion graphics video")
+# Cinematic & Narrative (short films)
+YT_THANKS_MOM = yt_proj("thanks-mom", "Thanks, Mom", "npCfEAypAoU", "Cinematic &amp; Narrative", "short film")
+YT_EVERY_AMERICAN = yt_proj("every-american-needs-to-hear-this", "Every American NEEDS to Hear This", "whXj6oMwWEc", "Cinematic &amp; Narrative", "short film")
+YT_IF_YOU_ARE_IN_PAIN = yt_proj("if-you-are-in-pain", "If you are in pain...", "3NuR39PLYsk", "Cinematic &amp; Narrative", "short film")
+YT_LEFT_THE_MARINES = yt_proj("i-left-the-marines-dont", "I left the Marines. Don't.", "j_9FB71lt7Q", "Cinematic &amp; Narrative", "short film")
+YT_ONCE_A_MARINE = yt_proj("once-a-marine", "Once a Marine...", "d9Rqc6ww0t4", "Cinematic &amp; Narrative", "short film")
+
+VLOGS = [YT_POV_PRODUCTION, YT_ONE_WEEK_CEO, YT_BATMAN, YT_FOUND_MY_PASSION, YT_RESOLUTIONS]
+SHORT_FILMS = [YT_THANKS_MOM, YT_EVERY_AMERICAN, YT_IF_YOU_ARE_IN_PAIN, YT_LEFT_THE_MARINES, YT_ONCE_A_MARINE]
+MOTION_GRAPHICS = [YT_DELETED_INSTAGRAM, YT_DOPAMINE_DETOX]
+FEATURED_DK = [YT_THANKS_MOM, YT_POV_PRODUCTION, YT_DELETED_INSTAGRAM]
+
 FEATURED_KMC = [ETHER, ZAIDI, LIV, MOON, NOOTRIMIND, RX]
 
 SIDES = {
@@ -186,14 +236,14 @@ SIDES = {
    other="media-co",
    cats=[
     ("cinematic", "Cinematic &amp; Narrative", "Short films, travel pieces and story-driven edits, where pacing, sound and structure carry the work.",
-     [("cinematic-01", "Placeholder: Cinematic Compilation Breakdown", "The story behind the reel at the top of the home page"),
-      ("cinematic-02", "Placeholder: Short Narrative Edit", "A short story told in a few minutes")]),
+     SHORT_FILMS),
+    ("vlogs", "Vlogs &amp; Storytelling", "Personal vlogs and story-driven videos from my YouTube channel.",
+     VLOGS),
+    ("motion-vfx", "Motion &amp; VFX", "Motion graphics, titles, tracking, rotoscoping and compositing.",
+     MOTION_GRAPHICS),
     ("color", "Color Grading", "Before-and-after grades in DaVinci Resolve, with the look, the reference and the node approach written out.",
      [("color-01", "Placeholder: Moody Exterior Grade", "Before/after look development"),
       ("color-02", "Placeholder: Skin-Tone Matching Across Cameras", "Before/after camera match")]),
-    ("motion-vfx", "Motion &amp; VFX", "Titles, tracking, rotoscoping and compositing, each with a breakdown of how the shot was built.",
-     [("motion-vfx-01", "Placeholder: Tracked Title Sequence", "Breakdown: track, roto, composite"),
-      ("motion-vfx-02", "Placeholder: Compositing Breakdown", "Breakdown: plates, layers, final")]),
     ("ai-evaluation", "AI Video Evaluation", "Written critiques of AI-generated video, scored against a rubric: motion, physics, continuity, lighting and what an editor would fix.",
      [("ai-evaluation-01", "Placeholder: AI Clip Critique Set", "3–5 generated clips scored against a rubric"),
       ("ai-evaluation-02", "Placeholder: Critique-to-Rules Workflow", "Turning editing feedback into written rules")]),
@@ -233,6 +283,14 @@ OLD.update({
     "media-co/projects/commercial-02.html": "media-co/projects/nootrimind.html",
     "media-co/projects/social-01.html": "media-co/projects/liv-realty.html",
     "media-co/projects/social-02.html": "media-co/projects/moon-speaks-style.html",
+    "projects/cinematic-01.html": "daniel/projects/thanks-mom.html",
+    "projects/cinematic-02.html": "daniel/projects/every-american-needs-to-hear-this.html",
+    "daniel/projects/cinematic-01.html": "daniel/projects/thanks-mom.html",
+    "daniel/projects/cinematic-02.html": "daniel/projects/every-american-needs-to-hear-this.html",
+    "projects/motion-vfx-01.html": "daniel/projects/i-deleted-instagram.html",
+    "projects/motion-vfx-02.html": "daniel/projects/dopamine-detox-doesnt-work.html",
+    "daniel/projects/motion-vfx-01.html": "daniel/projects/i-deleted-instagram.html",
+    "daniel/projects/motion-vfx-02.html": "daniel/projects/dopamine-detox-doesnt-work.html",
 })
 
 def rel(depth): return "../" * depth
@@ -374,11 +432,11 @@ def home(side):
     if side == "media-co":
         feats = [(proj["category_name"], proj) for proj in FEATURED_KMC]
         feat_class = "features kmc-featured"
+        feat_eyebrow, feat_heading = "Selected work", "Featured projects"
     else:
-        feats = [(c[1], c[3][0]) for c in cfg["cats"]]
-        if len(feats) < 3: feats.append((cfg["cats"][0][1], cfg["cats"][0][3][1]))
-        feats = feats[:3]
+        feats = [(proj["category_name"], proj) for proj in FEATURED_DK]
         feat_class = "features"
+        feat_eyebrow, feat_heading = "YouTube", "Latest from YouTube"
     feat_cards = []
     for cn, proj in feats:
         slug, title = pslug(proj), html.escape(ptitle(proj))
@@ -435,7 +493,7 @@ def home(side):
     <div class="prose">{intro}</div>
 </div></section>
 <section class="section"><div class="wrap">
-    <div class="section-head"><div class="eyebrow">Selected work</div><h2>Featured projects</h2></div>
+    <div class="section-head"><div class="eyebrow">{feat_eyebrow}</div><h2>{feat_heading}</h2></div>
     <div class="{feat_class}">{feat}</div>
 </div></section>
 <section class="section alt"><div class="wrap">
@@ -454,9 +512,15 @@ def category_entry(proj):
         def meta_span(val):
             cls = ' class="ph-text"' if (val or "").startswith("Placeholder") else ""
             return f"<span{cls}>{html.escape(val)}</span>"
-        thumb = f'<a href="{href}" class="thumb real"><img src="../../{proj["thumb"]}" alt=""></a>' if proj.get("thumb") else f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
+        if proj.get("youtube"):
+            thumb = yt_lite(proj["youtube"], proj["poster"], proj["title"], 2)
+        elif proj.get("thumb"):
+            thumb = f'<a href="{href}" class="thumb real"><img src="../../{proj["thumb"]}" alt=""></a>'
+        else:
+            thumb = f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
         meta = f'<div class="entry-meta">{meta_span(proj["year"])}{meta_span(proj["role"])}{meta_span(proj["tools"])}</div>'
-        preview = f'<p>{html.escape(proj["summary"])}</p>'
+        # YouTube cards already state the fact in the subtitle; don't repeat it.
+        preview = "" if proj.get("youtube") else f'<p>{html.escape(proj["summary"])}</p>'
     else:
         thumb = f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
         meta = '<div class="entry-meta"><span>Placeholder: year</span><span>Placeholder: role</span><span>Placeholder: tools</span></div>'
@@ -476,11 +540,24 @@ def category(side, slug, name, blurb, projs):
     if slug == "ai-evaluation":
         extra = """<aside class="note-box"><div class="eyebrow">Side note</div><p>I've also written editing rules and critiques to train an AI editing assistant (Editron). That work is a small part of this section; the focus here is my own judgment of what makes a shot work or fail.</p></aside>"""
     body = page_head(side, 2, [name], name, blurb) + f"""<section class="section tight"><div class="wrap"><div class="entries">{items}</div>{extra}</div></section>"""
-    page(side, f"{side}/{slug}/index.html", f"{html.unescape(name)} · {html.unescape(SIDES[side]['name'])}", 2, slug, body)
+    page(side, f"{side}/{slug}/index.html", f"{html.unescape(name)} · {html.unescape(SIDES[side]['name'])}", 2, slug, body, script=True)
 
 # ---------------- PROJECT ----------------
+def yt_lite(yt_id, poster, title, depth):
+    r = rel(depth)
+    safe_title = html.escape(title)
+    return (
+        f'<div class="video-frame yt-lite" data-yt="{html.escape(yt_id)}" data-yt-title="{safe_title}">'
+        f'<button type="button" class="yt-lite-btn" aria-label="Play {safe_title}">'
+        f'<img src="{r}{poster}" alt="">'
+        f'<span class="play" aria-hidden="true"></span>'
+        f'</button></div>'
+    )
+
 def video_players(proj, depth):
     r = rel(depth)
+    if proj.get("youtube"):
+        return f'<div class="video-set count-1 wide">{yt_lite(proj["youtube"], proj["poster"], proj["title"], depth)}</div>'
     vids = proj.get("videos") or []
     if not vids:
         return video_slot("Placeholder: project video", "Swap in the embed or MP4 for this project")
@@ -567,9 +644,10 @@ def project(side, cat, p, nxt):
         ]
         dl = []
         for label, value in details:
+            if not value:
+                continue
             if label == "Category":
-                cls = ""
-                dl.append(f"<dt>{label}</dt><dd{cls}>{value}</dd>")
+                dl.append(f"<dt>{label}</dt><dd>{value}</dd>")
             else:
                 dl.append(detail_dd(label, value))
         challenge = p.get("challenge")
