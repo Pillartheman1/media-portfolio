@@ -335,13 +335,14 @@ body.side-media-co .hero-logo{margin-bottom:30px}
 .video-set.count-4{grid-template-columns:repeat(4,minmax(160px,280px))}
 .video-frame.ar-4-3{aspect-ratio:4/3}
 .video-set.ar-4-3.count-3{grid-template-columns:repeat(3,minmax(240px,520px))}
+.video-set.ar-4-3.count-2{grid-template-columns:repeat(2,minmax(280px,520px))}
 .video-set.ar-4-3.count-1{grid-template-columns:minmax(320px,640px)}
 .video-set.count-1.wide{grid-template-columns:minmax(480px,840px)}
 @media (max-width:900px){
   .video-set.count-2,.video-set.count-3{grid-template-columns:minmax(200px,360px)}
   .video-set.count-4{grid-template-columns:repeat(2,minmax(160px,280px))}
   .video-set.count-1.wide{grid-template-columns:minmax(220px,1fr)}
-  .video-set.ar-4-3.count-3{grid-template-columns:minmax(220px,1fr)}
+  .video-set.ar-4-3.count-2,.video-set.ar-4-3.count-3{grid-template-columns:minmax(220px,1fr)}
   .features.kmc-featured{grid-template-columns:1fr}
   .features.kmc-featured .feature{grid-column:auto}
 }
