@@ -164,10 +164,10 @@ CHAINLINK = dict(
         dict(label="BAR AND CLUB OWNERS", src="assets/video/chainlink/bar-and-club-owners.mp4", poster="assets/video/chainlink/bar-and-club-owners.jpg"),
         dict(label="Grow your bar or club with business decisions based on real DATA", src="assets/video/chainlink/real-data-decisions.mp4", poster="assets/video/chainlink/real-data-decisions.jpg"),
         dict(label="Planning your week shouldn't come down to gut feel", src="assets/video/chainlink/planning-your-week.mp4", poster="assets/video/chainlink/planning-your-week.jpg"),
-        dict(label="How the CRM for bars brings in GenZ customers", src="assets/video/chainlink/genz-customers.mp4", poster="assets/video/chainlink/genz-customers.jpg"),
-        dict(label="STOP using loyalty points for your bar!", src="assets/video/chainlink/loyalty-points.mp4", poster="assets/video/chainlink/loyalty-points.jpg"),
-        dict(label="Stop guessing and grow your bar with REAL DATA", src="assets/video/chainlink/stop-guessing.mp4", poster="assets/video/chainlink/stop-guessing.jpg"),
-        dict(label="Chainlink is the CRM and growth platform for bars and Nightclubs", src="assets/video/chainlink/crm-for-bars.mp4", poster="assets/video/chainlink/crm-for-bars.jpg"),
+        dict(label="Spotify knows your music. Netflix knows your Tuesday night. Your bar doesn't even know your name.", src="assets/video/chainlink/bar-doesnt-know-your-name.mp4", poster="assets/video/chainlink/bar-doesnt-know-your-name.jpg"),
+        dict(label="Posting more on Instagram probably won't bring more Gen Z into your bar.", src="assets/video/chainlink/instagram-wont-bring-genz.mp4", poster="assets/video/chainlink/instagram-wont-bring-genz.jpg"),
+        dict(label="You have no idea who's drinking at your bar right now.", src="assets/video/chainlink/whos-drinking.mp4", poster="assets/video/chainlink/whos-drinking.jpg"),
+        dict(label="Do you actually know who your best customers are?", src="assets/video/chainlink/best-customers.mp4", poster="assets/video/chainlink/best-customers.jpg", aspect="4/3"),
     ],
     stills=[],
     overview="These Instagram videos were made for Chainlink, a CRM for bars and nightclubs. Every cut here was edited by Editron, the AI editing system I built. They were posted to Instagram in October 2026.",
@@ -797,7 +797,7 @@ def yt_lite(yt_id, poster, title, depth):
         f'</button></div>'
     )
 
-def video_set_html(vids, depth):
+def video_set_html(vids, depth, always_caption=False):
     r = rel(depth)
     n = len(vids)
     items = []
@@ -807,7 +807,7 @@ def video_set_html(vids, depth):
         poster = r + v["poster"]
         aspect = v.get("aspect") or "9/16"
         frame_cls = "vertical" if aspect == "9/16" else ("ar-4-3" if aspect == "4/3" else "landscape")
-        cap = f"<figcaption>{label}</figcaption>" if n > 1 else ""
+        cap = f"<figcaption>{label}</figcaption>" if (n > 1 or always_caption) else ""
         items.append(
             f'<figure class="video-item">'
             f'<div class="video-frame {frame_cls}" data-slot="video">'
@@ -893,20 +893,13 @@ def editron_panel(proj, depth):
     vids = proj.get("editron_videos") or []
     if not vids:
         return ""
-    r = rel(depth)
-    items = []
-    for v in vids:
-        label = html.escape(v["label"])
-        src_v = r + v["src"]
-        poster = r + v["poster"]
-        items.append(
-            f'<figure class="video-item">'
-            f'<div class="video-frame vertical" data-slot="video">'
-            f'<video src="{src_v}" poster="{poster}" controls preload="none" playsinline></video>'
-            f'</div><figcaption>{label}</figcaption></figure>'
-        )
-    n = len(vids)
-    grid = f'<div class="video-set count-{n}">' + "".join(items) + "</div>"
+    verts = [v for v in vids if (v.get("aspect") or "9/16") == "9/16"]
+    other = [v for v in vids if (v.get("aspect") or "9/16") != "9/16"]
+    grid = ""
+    if verts:
+        grid += video_set_html(verts, depth, always_caption=True)
+    if other:
+        grid += video_set_html(other, depth, always_caption=True)
     return (
         f'<section class="section tight"><div class="wrap">'
         f'<div class="editron-panel">'

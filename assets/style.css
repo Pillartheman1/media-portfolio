@@ -357,9 +357,10 @@ body.side-media-co .hero-logo{margin-bottom:30px}
 .editron-panel h2 a{color:#5fa8c8;border-bottom:1px solid rgba(95,168,200,.5)}
 .editron-panel h2 a:hover{border-bottom-color:#5fa8c8}
 .editron-panel .editron-lede{color:var(--muted);max-width:720px;margin:0 0 28px;font-size:16px;line-height:1.55}
-.video-set.count-8{grid-template-columns:repeat(4,minmax(150px,260px))}
+.video-set.count-5,.video-set.count-6,.video-set.count-7,.video-set.count-8{grid-template-columns:repeat(4,minmax(150px,260px))}
+.editron-panel .video-set + .video-set{margin-top:36px}
 @media (max-width:900px){
-  .video-set.count-8{grid-template-columns:repeat(2,minmax(150px,260px))}
+  .video-set.count-5,.video-set.count-6,.video-set.count-7,.video-set.count-8{grid-template-columns:repeat(2,minmax(150px,260px))}
   .editron-panel{padding:28px 20px 32px}
 }
 
