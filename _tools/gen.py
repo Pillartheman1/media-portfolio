@@ -56,6 +56,8 @@ for side, cfg in SIDES.items():
                 OLD[f"projects/{p[0]}.html"] = f"{side}/projects/{p[0]}.html"
 
 def rel(depth): return "../" * depth
+import hashlib as _h, pathlib as _p
+CSS_VER = _h.md5(_p.Path(__file__).resolve().parent.parent.joinpath("assets/style.css").read_bytes()).hexdigest()[:8]
 X_URL = "https://x.com/DanJKlabunde"
 X_HANDLE = "@DanJKlabunde"
 X_SVG = '<svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
@@ -78,7 +80,7 @@ def head(title, depth, side=None, desc="Daniel Klabunde and Klabunde Media Co. V
 <meta name="description" content="{desc}">
 <link rel="icon" href="{r}assets/{fav}">
 {FONTS}
-<link rel="stylesheet" href="{r}assets/style.css">
+<link rel="stylesheet" href="{r}assets/style.css?v={CSS_VER}">
 </head>
 <body class="side-{side or 'landing'}">
 """
@@ -224,6 +226,7 @@ def home(side):
   <div class="side-hero-bg" style="background-image:url('{r}assets/{cfg['hero']}')"></div><div class="side-hero-overlay"></div>
   <div class="wrap side-hero-content">
     <h1 class="sr-only">{cfg['name']}</h1>
+    {f'<img src="{r}assets/kmc-logo.png" alt="Klabunde Media Company" class="hero-logo">' if side != 'daniel' else ''}
     <div class="eyebrow light">{cfg['sub']}</div>
     <p class="hero-sub">{cfg['tagline']}</p>
     <a href="#reel" class="btn">Watch the {'reel' if side == 'daniel' else 'showreel'}</a>
