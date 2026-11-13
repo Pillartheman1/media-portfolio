@@ -1,0 +1,602 @@
+{
+  "source": "https://luck-column-b39.notion.site/I-Deleted-Instagram-You-Probably-Should-Too-f4ef8db3e5ec4d1489fa90eb7f2728a5",
+  "shotlist_page": "https://luck-column-b39.notion.site/Shotlist-ec6f21906db74b13994c7ffbfcee003d",
+  "script_page": "https://luck-column-b39.notion.site/Script-446c270e25c24b5ba38fa1ae51af1a70",
+  "columns": [
+    "Time",
+    "Set/shot",
+    "Angle",
+    "Camera",
+    "Type",
+    "Code"
+  ],
+  "excerpt_n": [
+    1,
+    2,
+    3,
+    5,
+    9,
+    11,
+    17,
+    42,
+    57,
+    63
+  ],
+  "shots": [
+    {
+      "n": 1,
+      "time": "noon",
+      "code": "1",
+      "set_shot": "Standard A-roll set",
+      "angle": "full torso in frame",
+      "camera": "a6400",
+      "type": "A-roll,Wide-angle"
+    },
+    {
+      "n": 2,
+      "time": "dawn",
+      "code": "2",
+      "set_shot": "Me in bed, dark in room",
+      "angle": "top-down",
+      "camera": "a6400",
+      "type": "Wide-angle,B-roll"
+    },
+    {
+      "n": 3,
+      "time": "dawn",
+      "code": "2",
+      "set_shot": "phone alarm on charger",
+      "angle": "facing plant and desk, slight angle down to see the whole screen well",
+      "camera": "Animation",
+      "type": "close-up,B-roll"
+    },
+    {
+      "n": 4,
+      "time": "dawn",
+      "code": "2",
+      "set_shot": "I throw the covers aside and get out of bed",
+      "angle": "perp to bed, eye-level when laying down, me fully in frame",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 5,
+      "time": "morning",
+      "code": "2",
+      "set_shot": "I slap my face staring at camera",
+      "angle": "eye-level, face fills most of frame",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 6,
+      "time": "morning",
+      "code": "2",
+      "set_shot": "Me brushing my teeth in front of mirror",
+      "angle": "shoulder-level, see me in mirror, angle at J closet/corner",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 7,
+      "time": "morning",
+      "code": "2",
+      "set_shot": "Me pouring pourover",
+      "angle": "same as from My Daily College Routine pour",
+      "camera": "a6400",
+      "type": "Wide-angle,B-roll"
+    },
+    {
+      "n": 8,
+      "time": "Morning",
+      "code": "2",
+      "set_shot": " me sitting down at desk",
+      "angle": "middle of J bed, desk fully in center frame, me fully in frame when sitting",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 9,
+      "time": "Morning",
+      "code": "2",
+      "set_shot": "Typing “p” intro incognito browser, pause, “pbs news”",
+      "angle": "sideways angle (left→right) at search bar, very close to screen",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 10,
+      "time": "Morning",
+      "code": "2",
+      "set_shot": "Me at desk glancing nervously at camera behind/left monitor and back",
+      "angle": "my face fully in frame (center), back of monitor fills part of left frame",
+      "camera": "s20",
+      "type": "B-roll"
+    },
+    {
+      "n": 11,
+      "time": "morning",
+      "code": "2",
+      "set_shot": "phone notification on desk my mouse, I turn to look at phone",
+      "angle": "cam behind my head (fills left frame with slight space on left) looking at an angle down at the phone over my right shoulder",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 12,
+      "time": "Morning",
+      "code": "2",
+      "set_shot": "I pick up phone and start to scroll (hold head still to mask in animations)",
+      "angle": "cam at desk lamp/laptop looking up at me, my head slightly left center frame",
+      "camera": "s20",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 13,
+      "time": "Morning",
+      "code": "2",
+      "set_shot": "my left eye, shifting slightly looking at phone",
+      "angle": "eye fills entire frame",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 14,
+      "time": "Morning",
+      "code": "2",
+      "set_shot": "“YOU SUCK AT YOUR JOB” image on my phone screen",
+      "angle": "over my right shoulder, looking down at phone in my hands",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 15,
+      "time": "Morning",
+      "code": "2",
+      "set_shot": "I look up at camera — gesture: what the hell?",
+      "angle": "cam at desk lamp/laptop looking up at me, my head slightly left center frame",
+      "camera": "s20",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 16,
+      "time": "noon",
+      "code": "3",
+      "set_shot": "Standard A-roll set",
+      "angle": "full torso in frame",
+      "camera": "a6400",
+      "type": "A-roll,Wide-angle"
+    },
+    {
+      "n": 17,
+      "time": "dusk",
+      "code": "3",
+      "set_shot": "setting phone alarm for 6am, scroll past numbers fast. phone sitting on window sill, room lights mostly off, curtains closed",
+      "angle": "screen fills almost entire frame, slight angle down, rotation so phone is diagonal on screen",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 18,
+      "time": "night",
+      "code": "3",
+      "set_shot": "J and I sleeping at our desks facing the cam, heads in books",
+      "angle": "cam in doorway facing window  face-on",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 19,
+      "time": "night",
+      "code": "3",
+      "set_shot": "Debate",
+      "angle": "seating dependant",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 20,
+      "time": "",
+      "code": "4",
+      "set_shot": "spring flower growth timelapse and other nature scenes",
+      "angle": "",
+      "camera": "Storyblocks",
+      "type": "B-roll"
+    },
+    {
+      "n": 21,
+      "time": "noon",
+      "code": "4",
+      "set_shot": "me sitting at edge of bed by desk with ac fan beside my head, spray water on face to look like sweat",
+      "angle": "head hills most of frame, center frame, eye-level",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 22,
+      "time": "morning",
+      "code": "4",
+      "set_shot": "me laying in bed SOAKED (hair and cloths totally wet). looking at lens uncomfortably/painfully. roll right out of bed right frame - don’t change face",
+      "angle": "torso and head fills most of frame, top-down",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 23,
+      "time": "Golden hour",
+      "code": "5",
+      "set_shot": "walking towards old campus VLOG (get feet walking)",
+      "angle": "",
+      "camera": "a6400",
+      "type": "A-roll"
+    },
+    {
+      "n": 24,
+      "time": "Golden hour",
+      "code": "5",
+      "set_shot": "tripod setup (gauge as you go)",
+      "angle": "",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 25,
+      "time": "Golden hour",
+      "code": "6",
+      "set_shot": "A-roll lines to camera",
+      "angle": "tripod on “campfire” center, direction that looks best on camera",
+      "camera": "a6400",
+      "type": "A-roll"
+    },
+    {
+      "n": 26,
+      "time": "",
+      "code": "7",
+      "set_shot": "drive footage of Ethan and his drone, then him laughing and “i’m such a weird person”",
+      "angle": "",
+      "camera": "download",
+      "type": "B-roll"
+    },
+    {
+      "n": 27,
+      "time": "",
+      "code": "7",
+      "set_shot": "Ethan interview (cut to speaking)",
+      "angle": "",
+      "camera": "a6400,OBS,download",
+      "type": "A-roll"
+    },
+    {
+      "n": 28,
+      "time": "Golden hour",
+      "code": "7",
+      "set_shot": "Walking back from old campus VLOG SCRIPT",
+      "angle": "vlog",
+      "camera": "a6400",
+      "type": "A-roll"
+    },
+    {
+      "n": 29,
+      "time": "Morning",
+      "code": "8",
+      "set_shot": "checks watch while sitting on the couch (8:00)",
+      "angle": "over my right shoulder, watch center frame",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 30,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "lowers wrist, nods, gets up right frame",
+      "angle": "face-on, head centered, torso mostly in frame",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 31,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "sits down at desk, cracks knuckles",
+      "angle": "top-down over desk (monitor top frame)",
+      "camera": "a6400",
+      "type": "Wide-angle,B-roll"
+    },
+    {
+      "n": 32,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "pounds fist in to palm a twice and starts working",
+      "angle": "my face fully in frame (center), back of monitor fills part of left frame",
+      "camera": "s20",
+      "type": "Wide-angle,B-roll"
+    },
+    {
+      "n": 33,
+      "time": "",
+      "code": "8",
+      "set_shot": "screen rec keyframe to show files",
+      "angle": "",
+      "camera": "OBS",
+      "type": "B-roll"
+    },
+    {
+      "n": 34,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "confidently smiles and nods, getting to work",
+      "angle": "my face center frame, cam in front of monitor",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 35,
+      "time": "",
+      "code": "8",
+      "set_shot": "canva screen rec and keyframes",
+      "angle": "",
+      "camera": "OBS",
+      "type": "B-roll"
+    },
+    {
+      "n": 36,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "lines",
+      "angle": "my face fully in frame (center), back of monitor fills part of left frame",
+      "camera": "s20",
+      "type": "A-roll,Wide-angle"
+    },
+    {
+      "n": 37,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "looking down in confusion, looking up in “let me check”",
+      "angle": "dittto",
+      "camera": "s20",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 38,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "me staring blankly at screen (my eyes)",
+      "angle": "both eyes fill entire frame face-on",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 39,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "my back as I stare at YT screen",
+      "angle": "me centered, back and and head fully in frame",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 40,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "me staring blankly at screen (my eyes)",
+      "angle": "both eyes fill entire frame face-on",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 41,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "repeat close-up of my left eye staring at screen",
+      "angle": "left eye fills entire screen",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 42,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "my finger hovering over the mouse",
+      "angle": "over keyboard from monitor, mouse centered",
+      "camera": "a6400",
+      "type": "close-up,B-roll"
+    },
+    {
+      "n": 43,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "I move the mouse fast to the right, camera tracks with motivated movement. take monitor off desk to operate better",
+      "angle": "mouse fully in frame but starts right ends center frame",
+      "camera": "s20",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 44,
+      "time": "morning",
+      "code": "8",
+      "set_shot": "points with thumb at desk, sitting on corner/edge of couch - line",
+      "angle": "me face on, eye-level, left frame, monitor and keyboard mostly visible",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 45,
+      "time": "noon",
+      "code": "9",
+      "set_shot": "Standard A-roll set",
+      "angle": "full torso in frame",
+      "camera": "a6400",
+      "type": "A-roll,Wide-angle"
+    },
+    {
+      "n": 46,
+      "time": "",
+      "code": "10",
+      "set_shot": "“environment” — nature, bird maybe",
+      "angle": "",
+      "camera": "Storyblocks",
+      "type": "B-roll"
+    },
+    {
+      "n": 47,
+      "time": "",
+      "code": "10",
+      "set_shot": "“habits”",
+      "angle": "",
+      "camera": "Storyblocks",
+      "type": "B-roll"
+    },
+    {
+      "n": 48,
+      "time": "",
+      "code": "10",
+      "set_shot": "“infrastructure”",
+      "angle": "",
+      "camera": "Storyblocks",
+      "type": "B-roll"
+    },
+    {
+      "n": 49,
+      "time": "",
+      "code": "10",
+      "set_shot": "screenshot of article, animate underline and keyframe",
+      "angle": "",
+      "camera": "OBS,Animation",
+      "type": "B-roll"
+    },
+    {
+      "n": 50,
+      "time": "",
+      "code": "10",
+      "set_shot": "“driving” “gym”",
+      "angle": "",
+      "camera": "Storyblocks",
+      "type": "B-roll"
+    },
+    {
+      "n": 51,
+      "time": "",
+      "code": "10",
+      "set_shot": "Matt, Thomas, and Niklas vids sequence on screen, keyframed on a backdrop",
+      "angle": "",
+      "camera": "OBS",
+      "type": "B-roll"
+    },
+    {
+      "n": 52,
+      "time": "",
+      "code": "10",
+      "set_shot": "friction text",
+      "angle": "",
+      "camera": "Animation",
+      "type": "B-roll"
+    },
+    {
+      "n": 53,
+      "time": "",
+      "code": "10",
+      "set_shot": "videogame remote breaks, book grows",
+      "angle": "",
+      "camera": "Animation",
+      "type": "B-roll"
+    },
+    {
+      "n": 54,
+      "time": "noon",
+      "code": "10",
+      "set_shot": "Standard A-roll set",
+      "angle": "full torso in frame",
+      "camera": "a6400",
+      "type": "A-roll,Wide-angle"
+    },
+    {
+      "n": 55,
+      "time": "",
+      "code": "10",
+      "set_shot": "website screen rec, keyframed",
+      "angle": "",
+      "camera": "OBS",
+      "type": "B-roll"
+    },
+    {
+      "n": 56,
+      "time": "noon",
+      "code": "11",
+      "set_shot": "switch camera angle",
+      "angle": "tripod at J’s desk, same shot as from 2021 video but wider",
+      "camera": "a6400",
+      "type": "A-roll,Wide-angle"
+    },
+    {
+      "n": 57,
+      "time": "dawn",
+      "code": "11",
+      "set_shot": "me sitting  up in bed, turns phone off and sets it aside, get up left frame",
+      "angle": "over my left shoulder, phone fills most of frame",
+      "camera": "a6400",
+      "type": "B-roll,close-up"
+    },
+    {
+      "n": 58,
+      "time": "morning",
+      "code": "11",
+      "set_shot": "Me brushing my teeth in front of mirror",
+      "angle": "shoulder-level, see me in mirror, angle at J closet/corner",
+      "camera": "a6400",
+      "type": "B-roll"
+    },
+    {
+      "n": 59,
+      "time": "dusk",
+      "code": "11",
+      "set_shot": "me at desk writing in journal in lap, facing door",
+      "angle": "cam by sink, eye-level when sitting, me sitting far right  frame",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 60,
+      "time": "dusk",
+      "code": "11",
+      "set_shot": "me laying backwards in bed watching Niklas video",
+      "angle": "ditto, me on left frame",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 61,
+      "time": "night",
+      "code": "11",
+      "set_shot": "me laying in bed to sleep, lights turn off like a clapper",
+      "angle": "ditto, my head center frame ish",
+      "camera": "a6400",
+      "type": "B-roll,Wide-angle"
+    },
+    {
+      "n": 62,
+      "time": "noon",
+      "code": "12",
+      "set_shot": "Standard A-roll set",
+      "angle": "full torso in frame",
+      "camera": "a6400",
+      "type": "A-roll,Wide-angle"
+    },
+    {
+      "n": 63,
+      "time": "",
+      "code": "12",
+      "set_shot": "delete instagram from your phone for 1 week and see what happens text animation",
+      "angle": "",
+      "camera": "Animation",
+      "type": "B-roll"
+    }
+  ],
+  "script_excerpt_label": "intro",
+  "script_excerpt": [
+    "In February 2021, I joined INSTAGRAM! In the year that followed, I leveled up my photography skills and got into the habit of sharing every photo I took with Instagram.",
+    "And I won’t lie, it helped me improve a lot!",
+    "In addition to shooting nothing but vertical photos for a year, I learned how to organize my feed, optimize my colors, and improve my branding skills. But despite all this progress, it was causing me to lose FUCKING MIND",
+    "Instagram was getting in the way of my work, my social life, and even my mental health! That’s why, one year later, I decided enough was enough",
+    "And I DELETED INSTAGRAM. And chances are, you should too."
+  ]
+}

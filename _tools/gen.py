@@ -2,8 +2,12 @@
 """Generates the static pages of the two-sided portfolio. Run from repo root: python3 _tools/gen.py
 Root index.html = split landing. /daniel/ = personal side. /media-co/ = business side.
 Old URLs (pre-split) get redirect stubs."""
-import os, html, shutil
+import os, html, shutil, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import sys
+if os.path.join(ROOT, "_tools") not in sys.path:
+    sys.path.insert(0, os.path.join(ROOT, "_tools"))
+from prepro import preproduction_panel
 
 def is_real(p):
     return isinstance(p, dict)
@@ -224,6 +228,35 @@ VLOGS = [YT_POV_PRODUCTION, YT_ONE_WEEK_CEO, YT_BATMAN, YT_FOUND_MY_PASSION, YT_
 SHORT_FILMS = [YT_THANKS_MOM, YT_EVERY_AMERICAN, YT_IF_YOU_ARE_IN_PAIN, YT_LEFT_THE_MARINES, YT_ONCE_A_MARINE]
 MOTION_GRAPHICS = [YT_DELETED_INSTAGRAM, YT_DOPAMINE_DETOX]
 FEATURED_DK = [YT_THANKS_MOM, YT_POV_PRODUCTION, YT_DELETED_INSTAGRAM]
+
+# Upload dates taken from each video's YouTube watch page (microformat
+# uploadDate/publishDate, or the on-page publishDate/dateText when the
+# ISO timestamp was not in the HTML). Not guessed.
+YT_UPLOAD_DATES = {
+    "MSwFTPgla-8": "2025-11-17",  # Nov 17, 2025
+    "Sqz7dxV9S0Q": "2025-08-17",  # Aug 17, 2025
+    "J3RDdiJIqKI": "2024-08-19",  # Aug 19, 2024
+    "K8_2jLyZvbU": "2024-06-26",  # Jun 26, 2024
+    "8wUFfLX5KlE": "2023-12-29",  # Dec 29, 2023
+    "xurQZXO8B2I": "2022-04-01",  # Apr 1, 2022
+    "0Hd6guhOTTE": "2022-04-18",  # Apr 18, 2022
+    "npCfEAypAoU": "2022-05-08",  # May 8, 2022
+    "whXj6oMwWEc": "2022-12-10",  # Dec 10, 2022
+    "3NuR39PLYsk": "2023-04-16",  # Apr 16, 2023
+    "j_9FB71lt7Q": "2023-03-27",  # Mar 27, 2023
+    "d9Rqc6ww0t4": "2023-06-08",  # Jun 8, 2023
+}
+_MONTHS = (
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+)
+for _proj in VLOGS + SHORT_FILMS + MOTION_GRAPHICS:
+    _iso = YT_UPLOAD_DATES.get(_proj.get("youtube"))
+    if not _iso:
+        continue
+    _y, _m, _d = _iso.split("-")
+    _proj["year"] = _y
+    _proj["timeline"] = f"{_MONTHS[int(_m) - 1]} {int(_d)}, {_y}"
 
 
 CARMEL = dict(
@@ -496,11 +529,13 @@ def home(side):
     feat = "".join(feat_cards)
     if side == "daniel":
         intro_h, intro = "Stories, not collages.", """<p class="ph-text">Placeholder: short intro. Two or three sentences about how Daniel approaches editing, pacing and color in his personal work.</p>
+      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="projects/i-deleted-instagram.html#pre-production">See the pre-production for I deleted Instagram →</a></p>
       <p>Every project here has its own page with the role, the tools, and the full story of how it came together, including what I'd do differently next time.</p>
       <a class="text-link" href="about/">More about me →</a>"""
         extra = ""
     else:
         intro_h, intro = "Video that does a job.", """<p class="ph-text">Placeholder: short company intro. What Klabunde Media Co. makes, who it's for (described generally, no client names), and how the work runs, including ongoing client relationships.</p>
+      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="../daniel/projects/i-deleted-instagram.html#pre-production">See an example of that workflow →</a></p>
       <p>Each page covers the work for that client, including ongoing relationships, with notes on the constraints and the decisions behind the cuts.</p>
       <a class="text-link" href="about/">About the company →</a>"""
         extra = ""
@@ -719,6 +754,7 @@ def project(side, cat, p, nxt):
         body = f"""<article class="project">
   {page_head(side, 2, [f'<a href="../{cslug}/">{cname}</a>', 'Project'], html.escape(title), html.escape(sub))}
   <section class="section tight"><div class="wrap">{video_players(p, 2)}</div></section>
+  {preproduction_panel(p)}
   {editron_panel(p, 2)}
   <section class="section tight"><div class="wrap project-grid">
       <div class="prose story">
@@ -798,8 +834,7 @@ def daniel_about():
     <div class="ph-thumb portrait"><span>Placeholder: portrait</span></div>
     <div class="prose">
       <h2>Background</h2>
-      <p class="ph-text">Placeholder: bio. How Daniel got into video, what he makes for himself, and what he cares about in an edit.</p>
-      <p class="ph-text">Placeholder: second paragraph on approach, taste and influences.</p>
+      <p>I started teaching myself video production around seven years ago in high school by creating regular YouTube videos, and I fell deeply in love with it over time. By the time I got out of the military, I entered the media and marketing world and became an executive in the largest UGC TikTok marketing agency in the US. That line of work didn't let me do what I loved most: cinematography. So I resigned my position and started my own production company, <a class="text-link" href="../../media-co/">Klabunde Media Co.</a>, in Indianapolis, serving high-end and luxury brands with cinematic media on a daily basis.</p>
       <h2>Tools</h2>
       <ul class="tag-list"><li>DaVinci Resolve</li><li class="ph-text">Placeholder: tool</li><li class="ph-text">Placeholder: tool</li><li class="ph-text">Placeholder: tool</li></ul>
       <p>Looking for business work? <a class="text-link" href="../../media-co/">Visit Klabunde Media Co. →</a></p>
@@ -819,6 +854,7 @@ def media_pages():
       <h2>The company</h2>
       <p class="ph-text">Placeholder: company story. When it started, what it makes, and the kinds of businesses it works with (described generally, no client names).</p>
       <h2>How we work</h2>
+      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="../../daniel/projects/i-deleted-instagram.html#pre-production">See an example of that workflow →</a></p>
       <p class="ph-text">Placeholder: approach, communication, review, and how ongoing work is handled.</p>
       <h2>Who's behind it</h2>
       <p>Klabunde Media Co. is run by Daniel Klabunde. <a class="text-link" href="../../daniel/">See Daniel's personal work →</a></p>

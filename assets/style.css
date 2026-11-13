@@ -384,3 +384,41 @@ body.side-daniel .nav-wrap{gap:18px}
   .video-set.landscape.count-2,
   .video-set.landscape.count-4{grid-template-columns:minmax(220px,1fr)}
 }
+
+
+/* Pre-production (shot list + script) */
+.prepro-section{padding-top:8px}
+.prepro-panel{
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:44px 44px 48px;
+}
+.prepro-panel h2{font-size:36px;margin:0 0 16px}
+.prepro-panel h3{font-size:24px;margin:36px 0 16px}
+.prepro-lede{color:var(--text);max-width:720px;margin:0 0 12px;font-size:17px;line-height:1.65}
+.prepro-link{margin:0 0 8px}
+.shotlist-wrap{overflow-x:auto;margin:0 0 16px;border:1px solid var(--line)}
+table.shotlist{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.45;background:var(--bg)}
+table.shotlist caption{text-align:left;caption-side:top;font:600 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:10px 14px 8px;background:var(--surface)}
+table.shotlist th{font:600 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 14px;border-bottom:1px solid var(--line-strong);background:var(--surface-2);white-space:nowrap;vertical-align:bottom}
+table.shotlist td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text)}
+table.shotlist td:first-child,table.shotlist td:nth-child(4),table.shotlist td:nth-child(5),table.shotlist td:nth-child(6){white-space:nowrap}
+table.shotlist td:nth-child(2),table.shotlist td:nth-child(3){min-width:180px}
+table.shotlist tbody tr:hover td{background:var(--surface-2)}
+.shotlist-more{margin:8px 0 0}
+.shotlist-more summary{cursor:pointer;font:500 15px/1.4 var(--sans);color:var(--accent);list-style-position:outside;padding:8px 0}
+.shotlist-more summary:hover{text-decoration:underline}
+.shotlist-more[open] summary{margin-bottom:14px}
+.script-excerpt{margin:0;background:var(--bg);border-left:3px solid var(--accent);padding:22px 28px 8px;max-width:760px}
+.script-excerpt p{font-family:var(--serif);font-size:22px;line-height:1.45;margin:0 0 14px;color:var(--text)}
+@media (max-width:800px){
+  .prepro-panel{padding:28px 18px 32px}
+  .script-excerpt{padding:18px 16px 4px}
+  .script-excerpt p{font-size:19px}
+  table.shotlist td:first-child,table.shotlist td:nth-child(4),table.shotlist td:nth-child(5),table.shotlist td:nth-child(6){white-space:normal}
+}
+
+/* DK About portrait: keep the full vertical frame, no crop */
+.about-portrait{margin:0}
+.about-portrait picture,.about-portrait img{display:block;width:100%;height:auto}
+.about-portrait img{border:1px solid var(--line);background:var(--surface-2)}
