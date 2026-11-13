@@ -8,6 +8,7 @@ import sys
 if os.path.join(ROOT, "_tools") not in sys.path:
     sys.path.insert(0, os.path.join(ROOT, "_tools"))
 from prepro import preproduction_panel
+from shotlisting import home_section as shotlisting_home, page_body as shotlisting_page_body, footer_items as shotlisting_footer_items
 
 def is_real(p):
     return isinstance(p, dict)
@@ -298,6 +299,41 @@ CARMEL = dict(
     differently=None,
 )
 
+
+KMC_INHOUSE = dict(
+    slug="kmc-in-house",
+    title="Klabunde Media Co. — In-house content",
+    subtitle="Instagram videos made for Klabunde Media Co. itself.",
+    summary="A set of Instagram videos made for Klabunde Media Co., not for a client.",
+    category_name="Social Content",
+    client="Klabunde Media Co.",
+    role="Producer, Director of Photography, Editor/Colorist",
+    tools="",
+    timeline="October 2025 – September 2026",
+    deliverables="Seven Instagram videos",
+    year="2025–2026",
+    thumb="assets/video/kmc-in-house/thumb.jpg",
+    videos=[],
+    video_sections=[
+        dict(title="", videos=[
+            dict(label="Quality gear doesn't mean quality media.", src="assets/video/kmc-in-house/quality-gear.mp4", poster="assets/video/kmc-in-house/quality-gear.jpg", aspect="4/3"),
+            dict(label="Your competitors aren't doing this", src="assets/video/kmc-in-house/competitors.mp4", poster="assets/video/kmc-in-house/competitors.jpg", aspect="4/3"),
+            dict(label="This is why your content isn't working", src="assets/video/kmc-in-house/content-isnt-working.mp4", poster="assets/video/kmc-in-house/content-isnt-working.jpg", aspect="4/3"),
+        ]),
+        dict(title="", videos=[
+            dict(label="This one mistake is killing your sales", src="assets/video/kmc-in-house/mistake-killing-sales.mp4", poster="assets/video/kmc-in-house/mistake-killing-sales.jpg", aspect="9/16"),
+            dict(label="Don't go viral", src="assets/video/kmc-in-house/dont-go-viral.mp4", poster="assets/video/kmc-in-house/dont-go-viral.jpg", aspect="9/16"),
+            dict(label="This is how movies HOOK you (and how you can profit from it).", src="assets/video/kmc-in-house/movies-hook-you.mp4", poster="assets/video/kmc-in-house/movies-hook-you.jpg", aspect="9/16"),
+            dict(label="Master Content Creation", src="assets/video/kmc-in-house/master-content-creation.mp4", poster="assets/video/kmc-in-house/master-content-creation.jpg", aspect="9/16"),
+        ]),
+    ],
+    stills=[],
+    overview="These Instagram videos were made for Klabunde Media Co. itself, not for a client. They were posted from October 2025 to September 2026.",
+    challenge="",
+    approach="",
+    differently="",
+)
+
 FEATURED_KMC = [ETHER, ZAIDI, LIV, CARMEL, NOOTRIMIND, RX]
 
 SIDES = {
@@ -333,7 +369,7 @@ SIDES = {
     ("commercial", "Commercial &amp; Brand", "Product films, brand spots and campaigns, with notes on the brief, the constraints and the decisions behind each cut.",
      [ETHER, ZAIDI, CARMEL, NOOTRIMIND]),
     ("social", "Social Content", "Short-form vertical and feed content: hooks, pacing for the platform, and series built to be consistent week to week.",
-     [LIV, MOON, RX]),
+     [LIV, MOON, RX, KMC_INHOUSE]),
    ],
    pages=[("about", "About")],
  ),
@@ -418,7 +454,7 @@ def header(side, depth, active=None):
 
 def footer(side, depth):
     cfg = SIDES[side]; r = rel(depth); s = f"{r}{side}/"; o = SIDES[cfg["other"]]
-    cols = "".join(f'<li><a href="{s}{slug}/">{n}</a></li>' for slug, n in nav_items(side))
+    cols = "".join(f'<li><a href="{s}{slug}/">{n}</a></li>' for slug, n in shotlisting_footer_items(side, nav_items(side)))
     return f"""<footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
@@ -529,13 +565,13 @@ def home(side):
     feat = "".join(feat_cards)
     if side == "daniel":
         intro_h, intro = "Stories, not collages.", """<p class="ph-text">Placeholder: short intro. Two or three sentences about how Daniel approaches editing, pacing and color in his personal work.</p>
-      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="projects/i-deleted-instagram.html#pre-production">See the pre-production for I deleted Instagram →</a></p>
+      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="#shot-listing">More on how I write a shot list →</a></p>
       <p>Every project here has its own page with the role, the tools, and the full story of how it came together, including what I'd do differently next time.</p>
       <a class="text-link" href="about/">More about me →</a>"""
         extra = ""
     else:
         intro_h, intro = "Video that does a job.", """<p class="ph-text">Placeholder: short company intro. What Klabunde Media Co. makes, who it's for (described generally, no client names), and how the work runs, including ongoing client relationships.</p>
-      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="../daniel/projects/i-deleted-instagram.html#pre-production">See an example of that workflow →</a></p>
+      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="#shot-listing">More on how I write a shot list →</a></p>
       <p>Each page covers the work for that client, including ongoing relationships, with notes on the constraints and the decisions behind the cuts.</p>
       <a class="text-link" href="about/">About the company →</a>"""
         extra = ""
@@ -571,6 +607,7 @@ def home(side):
     <div class="section-head"><div class="eyebrow">{feat_eyebrow}</div><h2>{feat_heading}</h2></div>
     <div class="{feat_class}">{feat}</div>
 </div></section>
+{shotlisting_home(side)}
 <section class="section alt"><div class="wrap">
     <div class="section-head"><div class="eyebrow">Browse</div><h2>Types of work</h2></div>
     <div class="cat-list">{cards}</div>
@@ -593,7 +630,10 @@ def category_entry(proj):
             thumb = f'<a href="{href}" class="thumb real"><img src="../../{proj["thumb"]}" alt=""></a>'
         else:
             thumb = f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
-        meta = f'<div class="entry-meta">{meta_span(proj["year"])}{meta_span(proj["role"])}{meta_span(proj["tools"])}</div>'
+        meta_bits = [meta_span(proj["year"]), meta_span(proj["role"])]
+        if proj.get("tools"):
+            meta_bits.append(meta_span(proj["tools"]))
+        meta = f'<div class="entry-meta">{"".join(meta_bits)}</div>'
         # YouTube cards already state the fact in the subtitle; don't repeat it.
         preview = "" if proj.get("youtube") else f'<p>{html.escape(proj["summary"])}</p>'
     else:
@@ -648,6 +688,8 @@ def video_set_html(vids, depth):
         )
     aspects = [v.get("aspect") or "9/16" for v in vids]
     classes = [f"count-{n}"]
+    if all(a == "4/3" for a in aspects):
+        classes.append("ar-4-3")
     if all(a == "16/9" for a in aspects) or (n == 1 and aspects[0] not in ("9/16", "4/3")):
         classes.append("landscape")
         if n == 1:
@@ -661,7 +703,7 @@ def video_players(proj, depth):
     if sections:
         blocks = []
         for sec in sections:
-            heading = html.escape(sec["title"])
+            heading = html.escape(sec["title"]) if sec.get("title") else ""
             vids = sec["videos"]
             verts = [v for v in vids if (v.get("aspect") or "9/16") == "9/16"]
             other = [v for v in vids if (v.get("aspect") or "9/16") != "9/16"]
@@ -670,7 +712,8 @@ def video_players(proj, depth):
                 body = video_set_html(verts, depth) + video_set_html(other, depth)
             else:
                 body = video_set_html(vids, depth)
-            blocks.append(f'<div class="video-section"><h2>{heading}</h2>{body}</div>')
+            head = f"<h2>{heading}</h2>" if heading else ""
+            blocks.append(f'<div class="video-section">{head}{body}</div>')
         return "".join(blocks)
     vids = proj.get("videos") or []
     if not vids:
@@ -735,7 +778,7 @@ def project(side, cat, p, nxt):
             ("Client", p.get("client") or ""),
             ("Category", cname),
             ("Role", p.get("role") or "Placeholder: role"),
-            ("Tools", p.get("tools") or "Placeholder: tools"),
+            ("Tools", p["tools"] if "tools" in p else "Placeholder: tools"),
             ("Timeline", p.get("timeline") or "Placeholder: timeline"),
             ("Deliverables", p.get("deliverables") or "Placeholder: deliverables"),
             ("Year", p.get("year") or "Placeholder: year"),
@@ -854,7 +897,7 @@ def media_pages():
       <h2>The company</h2>
       <p class="ph-text">Placeholder: company story. When it started, what it makes, and the kinds of businesses it works with (described generally, no client names).</p>
       <h2>How we work</h2>
-      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="../../daniel/projects/i-deleted-instagram.html#pre-production">See an example of that workflow →</a></p>
+      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="../shot-listing/">More on how I write a shot list →</a></p>
       <p class="ph-text">Placeholder: approach, communication, review, and how ongoing work is handled.</p>
       <h2>Who's behind it</h2>
       <p>Klabunde Media Co. is run by Daniel Klabunde. <a class="text-link" href="../../daniel/">See Daniel's personal work →</a></p>
@@ -887,4 +930,8 @@ if __name__ == "__main__":
             nx = allp[(i + 1) % len(allp)][1]
             project(side, c, p, nx); n += 1
     daniel_about(); media_pages(); n += 2
+    for _side in ("daniel", "media-co"):
+        _body = shotlisting_page_body(_side, page_head)
+        page(_side, f"{_side}/shot-listing/index.html", f"Shot listing · {html.unescape(SIDES[_side]['name'])}", 2, "shot-listing", _body)
+        n += 1
     print("built", n, "pages +", len(OLD), "redirects")
