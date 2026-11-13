@@ -462,6 +462,7 @@ def rel(depth): return "../" * depth
 import hashlib as _h, pathlib as _p
 CSS_VER = _h.md5(_p.Path(__file__).resolve().parent.parent.joinpath("assets/style.css").read_bytes()).hexdigest()[:8]
 X_URL = "https://x.com/DanJKlabunde"
+EMAIL = "danielj.klabunde@proton.me"
 X_HANDLE = "@DanJKlabunde"
 X_SVG = '<svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
 def x_link(cls="x-link", text=True):
@@ -519,7 +520,7 @@ def footer(side, depth):
       <p><a href="{r}{cfg['other']}/">Visit {o['name']} →</a><br><a href="{r}index.html">← Back to the landing page</a></p>
     </div>
     <div><h4>Explore</h4><ul>{cols}</ul></div>
-    <div><h4>Contact</h4><ul><li><a href="{X_URL}" target="_blank" rel="noopener">X: {X_HANDLE}</a> <span class="muted small">(AI, filmmaking &amp; engineering)</span></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: other social links</li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="{X_URL}" target="_blank" rel="noopener">X: {X_HANDLE}</a> <span class="muted small">(AI, filmmaking &amp; engineering)</span></li><li><a href="mailto:{EMAIL}">{EMAIL}</a></li><li class="ph-inline">Placeholder: other social links</li></ul></div>
   </div>
   <div class="wrap footer-base">© 2026 Daniel Klabunde · Klabunde Media Co.</div>
 </footer>
@@ -1052,7 +1053,7 @@ def project(side, cat, p, nxt):
 def contact_card(side):
     yt = f'<dt>X</dt><dd><a href="{X_URL}">{X_HANDLE}</a></dd><dt>YouTube</dt><dd><a href="https://www.youtube.com/@danklabunde">@danklabunde</a></dd>' if side == "daniel" else '<dt>Social</dt><dd class="ph-text">Placeholder: company social links</dd>'
     return f"""<div class="details-card"><dl>
-        <dt>Email</dt><dd class="ph-text">Placeholder: email address</dd>{yt}
+        <dt>Email</dt><dd><a href="mailto:{EMAIL}">{EMAIL}</a></dd>{yt}
         <dt>Instagram</dt><dd class="ph-text">Placeholder: handle</dd>
         {'<dt>Résumé</dt><dd class="ph-text">Placeholder: PDF link</dd>' if side == 'daniel' else '<dt>Booking</dt><dd class="ph-text">Placeholder: inquiry form or calendar link</dd>'}
       </dl></div>"""
