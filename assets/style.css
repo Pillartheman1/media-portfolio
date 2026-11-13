@@ -290,3 +290,13 @@ body.side-landing{background:var(--bg)}
 .btn-accent{border-color:#e07b3e;color:#e07b3e;white-space:nowrap}
 .btn-accent:hover{background:#e07b3e;color:#1b1b1c}
 @media (max-width:900px){.x-cta-inner{grid-template-columns:1fr}}
+
+/* DK side: warm charcoal gradient as the page background (from the video placeholder) */
+body.side-daniel{background:radial-gradient(ellipse 70% 60% at 82% 8%,rgba(224,123,62,.16),transparent 60%),radial-gradient(ellipse 70% 60% at 18% 100%,rgba(66,86,94,.22),transparent 65%),var(--surface);background-attachment:fixed}
+body.side-daniel .page-head{background:linear-gradient(180deg,rgba(224,123,62,.06),transparent)}
+body.side-daniel .section.alt{background:rgba(24,25,27,.28)}
+body.side-daniel .x-cta{background:linear-gradient(90deg,rgba(224,123,62,.10),rgba(224,123,62,.02) 60%),rgba(24,25,27,.28)}
+body.side-daniel .site-footer{background:rgba(20,21,22,.55)}
+body.side-daniel .site-header{background:rgba(40,38,38,.82)}
+body.side-daniel .hero-overlay{background:linear-gradient(180deg,rgba(44,45,48,.15) 0%,rgba(44,45,48,.35) 55%,rgba(44,45,48,0) 100%)}
+body.side-daniel .side-hero-overlay{background:linear-gradient(180deg,rgba(44,45,48,0) 0%,rgba(44,45,48,.1) 55%,rgba(44,45,48,0) 100%)}
