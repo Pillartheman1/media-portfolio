@@ -144,6 +144,39 @@ RX = dict(
 )
 
 
+CHAINLINK = dict(
+    slug="chainlink",
+    title="Chainlink",
+    subtitle="Short-form videos for Chainlink, a CRM for bars and nightclubs.",
+    summary="Instagram videos for Chainlink, a CRM for bars and nightclubs, edited by Editron.",
+    category_name="Social Content",
+    client="Chainlink",
+    role="",
+    tools="Editron",
+    timeline="October 2026",
+    deliverables="Eight Instagram videos",
+    year="2026",
+    thumb="assets/video/chainlink/thumb.jpg",
+    videos=[],
+    editron_lede="These cuts were edited by Editron, the AI editing system I built.",
+    editron_videos=[
+        dict(label="The CRM and growth platform for bars and nightclubs", src="assets/video/chainlink/crm-growth-platform.mp4", poster="assets/video/chainlink/crm-growth-platform.jpg"),
+        dict(label="BAR AND CLUB OWNERS", src="assets/video/chainlink/bar-and-club-owners.mp4", poster="assets/video/chainlink/bar-and-club-owners.jpg"),
+        dict(label="Grow your bar or club with business decisions based on real DATA", src="assets/video/chainlink/real-data-decisions.mp4", poster="assets/video/chainlink/real-data-decisions.jpg"),
+        dict(label="Planning your week shouldn't come down to gut feel", src="assets/video/chainlink/planning-your-week.mp4", poster="assets/video/chainlink/planning-your-week.jpg"),
+        dict(label="How the CRM for bars brings in GenZ customers", src="assets/video/chainlink/genz-customers.mp4", poster="assets/video/chainlink/genz-customers.jpg"),
+        dict(label="STOP using loyalty points for your bar!", src="assets/video/chainlink/loyalty-points.mp4", poster="assets/video/chainlink/loyalty-points.jpg"),
+        dict(label="Stop guessing and grow your bar with REAL DATA", src="assets/video/chainlink/stop-guessing.mp4", poster="assets/video/chainlink/stop-guessing.jpg"),
+        dict(label="Chainlink is the CRM and growth platform for bars and Nightclubs", src="assets/video/chainlink/crm-for-bars.mp4", poster="assets/video/chainlink/crm-for-bars.jpg"),
+    ],
+    stills=[],
+    overview="These Instagram videos were made for Chainlink, a CRM for bars and nightclubs. Every cut here was edited by Editron, the AI editing system I built. They were posted to Instagram in October 2026.",
+    challenge="",
+    approach="",
+    differently="",
+)
+
+
 ZAIDI = dict(
     slug="zaidi-jewelers",
     title="Zaidi Jewelers",
@@ -386,7 +419,7 @@ SIDES = {
     ("commercial", "Commercial &amp; Brand", "Product films, brand spots and campaigns, with notes on the brief, the constraints and the decisions behind each cut.",
      [ETHER, ZAIDI, CARMEL, NOOTRIMIND]),
     ("social", "Social Content", "Short-form vertical and feed content: hooks, pacing for the platform, and series built to be consistent week to week.",
-     [KMC_INHOUSE, LIV, MOON, RX]),
+     [KMC_INHOUSE, LIV, MOON, RX, CHAINLINK]),
    ],
    pages=[("about", "About")],
  ),
@@ -848,6 +881,8 @@ def video_players(proj, depth):
         return "".join(parts)
     vids = proj.get("videos") or []
     if not vids:
+        if proj.get("editron_videos"):
+            return ""
         return video_slot("Placeholder: project video", "Swap in the embed or MP4 for this project")
     return video_set_html(vids, depth)
 
@@ -876,7 +911,7 @@ def editron_panel(proj, depth):
         f'<section class="section tight"><div class="wrap">'
         f'<div class="editron-panel">'
         f'<h2>Edited by <a href="{EDITRON_URL}" target="_blank" rel="noopener">Editron</a></h2>'
-        f'<p class="editron-lede">These cuts were edited by Editron, the AI editing system I built, from footage of the same Zaidi Jewelers work.</p>'
+        f'<p class="editron-lede">{html.escape(proj.get("editron_lede") or "These cuts were edited by Editron, the AI editing system I built, from footage of the same Zaidi Jewelers work.")}</p>'
         f'{grid}'
         f'</div></div></section>'
     )
@@ -908,7 +943,7 @@ def project(side, cat, p, nxt):
         details = [
             ("Client", p.get("client") or ""),
             ("Category", cname),
-            ("Role", p.get("role") or "Placeholder: role"),
+            ("Role", p["role"] if "role" in p else "Placeholder: role"),
             ("Tools", p["tools"] if "tools" in p else "Placeholder: tools"),
             ("Timeline", p["timeline"] if "timeline" in p else "Placeholder: timeline"),
             ("Deliverables", p.get("deliverables") or "Placeholder: deliverables"),
