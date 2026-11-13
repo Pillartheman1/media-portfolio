@@ -386,8 +386,13 @@ FEATURED_KMC = [ETHER, ZAIDI, LIV, CARMEL, NOOTRIMIND, RX]
 SIDES = {
  "daniel": dict(
    name="Daniel Klabunde", sub="Personal work", logo="monogram.png", logo_cls="", hero="header.jpg",
-   reel=("Placeholder: main cinematic compilation", "16:9 slot, ready for a YouTube or Vimeo embed or a local MP4"),
-   reel_title="Main Cinematic Compilation",
+   reel=dict(
+    title="Montage",
+    src="assets/video/dk-montage/montage.mp4",
+    poster="assets/video/dk-montage/montage.jpg",
+    caption="A montage of personal cinematic work, two minutes and fifty-one seconds.",
+   ),
+   reel_title="Montage",
    tagline="Personal projects in cinematic storytelling, color and visual craft.",
    other="media-co",
    cats=[
@@ -584,7 +589,7 @@ def landing():
 # ---------------- SIDE HOME ----------------
 
 def home_reel_section(side, cfg, r):
-    """KMC home gets two real showreels; the Daniel side keeps the placeholder slot."""
+    """KMC home gets two real showreels; a single real reel (Daniel) uses cfg['reel'] as a dict."""
     reels = cfg.get("reels") or []
     if reels:
         blocks = []
@@ -606,6 +611,24 @@ def home_reel_section(side, cfg, r):
             f'<div class="section-head"><div class="eyebrow">Showreels</div>'
             f'<h2 class="sr-only">Showreels</h2></div>'
             f'<div class="showreel-list">{"".join(blocks)}</div>'
+            f'</div></section>'
+        )
+    reel = cfg.get("reel")
+    if isinstance(reel, dict) and reel.get("src"):
+        title = html.escape(reel.get("title") or cfg.get("reel_title") or "Showreel")
+        src_v = r + reel["src"]
+        poster = r + reel["poster"]
+        cap = reel.get("caption")
+        cap_html = f'<p class="caption">{html.escape(cap)}</p>' if cap else ""
+        return (
+            f'<section id="reel" class="section reel"><div class="wrap">'
+            f'<div class="section-head"><div class="eyebrow">Showreel</div><h2>{title}</h2></div>'
+            f'<div class="video-set count-1 wide landscape">'
+            f'<figure class="video-item">'
+            f'<div class="video-frame landscape" data-slot="video">'
+            f'<video src="{src_v}" poster="{poster}" controls preload="none" playsinline></video>'
+            f'</div></figure></div>'
+            f'{cap_html}'
             f'</div></section>'
         )
     return (
