@@ -61,7 +61,7 @@ X_HANDLE = "@DanJKlabunde"
 X_SVG = '<svg class="x-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>'
 def x_link(cls="x-link", text=True):
     t = f'<span>{X_HANDLE}</span>' if text else ''
-    return f'<a class="{cls}" href="{X_URL}" target="_blank" rel="noopener" title="AI video breakdowns on X: {X_HANDLE}" aria-label="{X_HANDLE} on X">{X_SVG}{t}</a>'
+    return f'<a class="{cls}" href="{X_URL}" target="_blank" rel="noopener" title="Dan Klabunde on X: {X_HANDLE}" aria-label="{X_HANDLE} on X">{X_SVG}{t}</a>'
 FONTS = """<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">"""
@@ -115,7 +115,7 @@ def footer(side, depth):
       <p><a href="{r}{cfg['other']}/">Visit {o['name']} →</a><br><a href="{r}index.html">← Back to the landing page</a></p>
     </div>
     <div><h4>Explore</h4><ul>{cols}</ul></div>
-    <div><h4>Contact</h4><ul><li><a href="{contact}">Get in touch</a></li><li><a href="{X_URL}" target="_blank" rel="noopener">X: {X_HANDLE}</a> <span class="muted small">(AI video breakdowns)</span></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: other social links</li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="{contact}">Get in touch</a></li><li><a href="{X_URL}" target="_blank" rel="noopener">X: {X_HANDLE}</a> <span class="muted small">(AI, filmmaking &amp; engineering)</span></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: other social links</li></ul></div>
   </div>
   <div class="wrap footer-base">© 2026 Daniel Klabunde · Klabunde Media Co.</div>
 </footer>
@@ -174,7 +174,7 @@ def landing():
         <span class="split-enter">Enter →</span>
       </a>
     </div>
-    <p class="landing-x">AI video critique &amp; breakdowns on X {x_link("x-link")}</p>
+    <p class="landing-x">AI, filmmaking &amp; engineering on X {x_link("x-link")}</p>
   </div>
 </main>
 </body>
@@ -215,8 +215,8 @@ def home(side):
     x_cta = f"""<section class="x-cta"><div class="wrap x-cta-inner">
     <div class="x-cta-mark">{X_SVG}</div>
     <div class="x-cta-text"><div class="eyebrow">On X</div>
-      <h2>I break down AI-generated video on X.</h2>
-      <p>Frame-by-frame critiques of motion, physics, continuity and timing: what holds up, what breaks, and what an editor would fix.</p></div>
+      <h2>AI, filmmaking, and engineering.</h2>
+      <p>Video production, Linux and STEM, and everything I&#39;m teaching myself about engineering along the way. Follow along on X.</p></div>
     <a class="btn btn-accent" href="{X_URL}" target="_blank" rel="noopener">Follow {X_HANDLE}</a>
 </div></section>"""
     body = f"""<section class="side-hero">
