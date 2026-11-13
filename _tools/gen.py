@@ -232,7 +232,7 @@ def yt_proj(slug, title, yt_id, category_name, kind):
         poster=poster,
         videos=[],
         stills=[],
-        role="Placeholder: role",
+        role="Sole creator",
         tools="Placeholder: tools",
         timeline="Placeholder: timeline",
         deliverables="One YouTube video",
@@ -765,7 +765,7 @@ def home(side):
     page(side, f"{side}/index.html", f"{html.unescape(cfg['name'])}", 1, None, body)
 
 # ---------------- CATEGORY ----------------
-def category_entry(proj):
+def category_entry(proj, side=None):
     slug, title, sub = pslug(proj), html.escape(ptitle(proj)), html.escape(psub(proj))
     href = f"../projects/{slug}.html"
     if is_real(proj):
@@ -781,8 +781,9 @@ def category_entry(proj):
         meta_bits = []
         if proj.get("year"):
             meta_bits.append(meta_span(proj["year"]))
-        if proj.get("role"):
-            meta_bits.append(meta_span(proj["role"]))
+        role = "Sole creator" if side == "daniel" else proj.get("role")
+        if role:
+            meta_bits.append(meta_span(role))
         if proj.get("tools"):
             meta_bits.append(meta_span(proj["tools"]))
         meta = f'<div class="entry-meta">{"".join(meta_bits)}</div>'
@@ -790,7 +791,9 @@ def category_entry(proj):
         preview = "" if proj.get("youtube") else f'<p>{html.escape(proj["summary"])}</p>'
     else:
         thumb = f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
-        meta = '<div class="entry-meta"><span>Placeholder: year</span><span>Placeholder: role</span><span>Placeholder: tools</span></div>'
+        role_meta = "Sole creator" if side == "daniel" else "Placeholder: role"
+        role_cls = "" if side == "daniel" else ' class="ph-text"'
+        meta = f'<div class="entry-meta"><span class="ph-text">Placeholder: year</span><span{role_cls}>{role_meta}</span><span class="ph-text">Placeholder: tools</span></div>'
         preview = '<p class="ph-text">Placeholder: project story preview. A short paragraph on the goal, the challenge and how the edit solved it. The full write-up lives on the project page.</p>'
     return f"""<article class="entry">
       {thumb}
@@ -802,7 +805,7 @@ def category_entry(proj):
       </div></article>"""
 
 def category(side, slug, name, blurb, projs):
-    items = "".join(category_entry(proj) for proj in projs)
+    items = "".join(category_entry(proj, side) for proj in projs)
     extra = ""
     if slug == "ai-evaluation":
         extra = """<aside class="note-box"><div class="eyebrow">Side note</div><p>I've also written editing rules and critiques to train an AI editing assistant (Editron). That work is a small part of this section; the focus here is my own judgment of what makes a shot work or fail.</p></aside>"""
@@ -960,7 +963,7 @@ def project(side, cat, p, nxt):
         details = [
             ("Client", p.get("client") or ""),
             ("Category", cname),
-            ("Role", p["role"] if "role" in p else "Placeholder: role"),
+            ("Role", "Sole creator" if side == "daniel" else (p["role"] if "role" in p else "Placeholder: role")),
             ("Tools", p["tools"] if "tools" in p else "Placeholder: tools"),
             ("Timeline", p["timeline"] if "timeline" in p else "Placeholder: timeline"),
             ("Deliverables", p.get("deliverables") or "Placeholder: deliverables"),
@@ -1033,7 +1036,7 @@ def project(side, cat, p, nxt):
       </div>
       <aside class="details"><div class="details-card"><h3>Project details</h3><dl>
             <dt>Category</dt><dd>{cname}</dd>
-            <dt>Role</dt><dd class="ph-text">Placeholder: role</dd>
+            <dt>Role</dt><dd{'' if side == 'daniel' else ' class="ph-text"'}>{'Sole creator' if side == 'daniel' else 'Placeholder: role'}</dd>
             <dt>Tools</dt><dd class="ph-text">Placeholder: tools</dd>
             <dt>Timeline</dt><dd class="ph-text">Placeholder: timeline</dd>
             <dt>Deliverables</dt><dd class="ph-text">Placeholder: deliverables</dd>
@@ -1057,7 +1060,9 @@ def contact_card(side):
 def daniel_about():
     body = page_head("daniel", 2, ["About"], "About Daniel", "Editor and colorist. This is the personal side of my work.") + f"""
 <section class="section tight"><div class="wrap about-grid">
-    <div class="ph-thumb portrait"><span>Placeholder: portrait</span></div>
+    <figure class="about-portrait">
+      <img src="../../assets/dk-portrait.jpg" width="1067" height="1600" alt="Daniel Klabunde in a dark suit and red tie, looking upward against a warm painted backdrop.">
+    </figure>
     <div class="prose">
       <h2>Background</h2>
       <p>I started teaching myself video production around seven years ago in high school by creating regular YouTube videos, and I fell deeply in love with it over time. By the time I got out of the military, I entered the media and marketing world and became an executive in the largest UGC TikTok marketing agency in the US. That line of work didn't let me do what I loved most: cinematography. So I resigned my position and started my own production company, <a class="text-link" href="../../media-co/">Klabunde Media Co.</a>, in Indianapolis, serving high-end and luxury brands with cinematic media on a daily basis.</p>
