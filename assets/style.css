@@ -520,3 +520,15 @@ body.side-media-co .sl-frame.tone-atelier .sl-frame-art{color:#8eb4c6}
 @media (max-width:600px){
   .sl-board-row{grid-template-columns:1fr}
 }
+
+/* KMC home: two labeled showreels in place of the old single company reel */
+#reel{scroll-margin-top:96px}
+.showreel-list{display:flex;flex-direction:column;gap:56px}
+.showreel h2{font-size:32px;margin:0 0 20px}
+.showreel .video-set{width:100%;max-width:840px;margin:0}
+@media (max-width:900px){
+  .showreel-list{gap:40px}
+  .showreel h2{font-size:26px}
+}
+
+#cinematography-breakdowns,#short-form{scroll-margin-top:96px}

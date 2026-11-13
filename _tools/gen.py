@@ -303,17 +303,30 @@ CARMEL = dict(
 KMC_INHOUSE = dict(
     slug="kmc-in-house",
     title="Klabunde Media Co. — In-house content",
-    subtitle="Instagram videos made for Klabunde Media Co. itself.",
-    summary="A set of Instagram videos made for Klabunde Media Co., not for a client.",
+    subtitle="Long-form YouTube breakdowns and short-form Instagram videos made for Klabunde Media Co. itself.",
+    summary="Long-form cinematography breakdowns and short-form Instagram videos made for Klabunde Media Co., not for a client.",
     category_name="Social Content",
     client="Klabunde Media Co.",
     role="Producer, Director of Photography, Editor/Colorist",
     tools="",
-    timeline="October 2025 – September 2026",
-    deliverables="Seven Instagram videos",
-    year="2025–2026",
-    thumb="assets/video/kmc-in-house/thumb.jpg",
+    timeline="",
+    deliverables="Seven YouTube videos and seven Instagram videos",
+    year="",
+    thumb="assets/video/youtube/WMqc3-s1qb4.jpg",
     videos=[],
+    youtube_heading="Long-form cinematography breakdowns",
+    youtube_anchor="cinematography-breakdowns",
+    youtube_videos=[
+        dict(youtube="vNNUMxLY1tU", title="I REJECTED a $10K deal with Porsche and learned this:", poster="assets/video/youtube/vNNUMxLY1tU.jpg"),
+        dict(youtube="WMqc3-s1qb4", title="Why Fight Club looks like that...", poster="assets/video/youtube/WMqc3-s1qb4.jpg"),
+        dict(youtube="yffFh6URbKk", title="What filmmakers can learn from the disaster of Tron: Ares", poster="assets/video/youtube/yffFh6URbKk.jpg"),
+        dict(youtube="l9ROiAosJa8", title="How to Show (not tell) in a commercial", poster="assets/video/youtube/l9ROiAosJa8.jpg"),
+        dict(youtube="ZO2eAUfIK8Q", title="What content creators can learn from movies", poster="assets/video/youtube/ZO2eAUfIK8Q.jpg"),
+        dict(youtube="a1IXrCmJQQw", title="The beginner's guide to video editing programs", poster="assets/video/youtube/a1IXrCmJQQw.jpg"),
+        dict(youtube="NH79ypFhQ50", title="Why The Volume looks like that", poster="assets/video/youtube/NH79ypFhQ50.jpg"),
+    ],
+    videos_heading="Short-form",
+    videos_anchor="short-form",
     video_sections=[
         dict(title="", videos=[
             dict(label="Quality gear doesn't mean quality media.", src="assets/video/kmc-in-house/quality-gear.mp4", poster="assets/video/kmc-in-house/quality-gear.jpg", aspect="4/3"),
@@ -328,41 +341,7 @@ KMC_INHOUSE = dict(
         ]),
     ],
     stills=[],
-    overview="These Instagram videos were made for Klabunde Media Co. itself, not for a client. They were posted from October 2025 to September 2026.",
-    challenge="",
-    approach="",
-    differently="",
-)
-
-
-# Titles from YouTube oEmbed. Upload dates could not be read from the
-# watch pages this time (YouTube returned 429 / a sign-in wall from this
-# network), so year and timeline are omitted rather than guessed.
-KMC_BREAKDOWNS = dict(
-    slug="kmc-cinematography-breakdowns",
-    title="Klabunde Media Co. — Cinematography breakdowns",
-    subtitle="Long-form YouTube videos on cinematography and how films are put together.",
-    summary="Long-form YouTube videos from Klabunde Media Co. on cinematography, including shot-by-shot looks at how films are put together.",
-    category_name="Social Content",
-    client="Klabunde Media Co.",
-    role="Producer, Director of Photography, Editor/Colorist",
-    tools="",
-    timeline="",
-    deliverables="Seven YouTube videos",
-    year="",
-    thumb="assets/video/youtube/WMqc3-s1qb4.jpg",
-    videos=[],
-    youtube_videos=[
-        dict(youtube="vNNUMxLY1tU", title="I REJECTED a $10K deal with Porsche and learned this:", poster="assets/video/youtube/vNNUMxLY1tU.jpg"),
-        dict(youtube="WMqc3-s1qb4", title="Why Fight Club looks like that...", poster="assets/video/youtube/WMqc3-s1qb4.jpg"),
-        dict(youtube="yffFh6URbKk", title="What filmmakers can learn from the disaster of Tron: Ares", poster="assets/video/youtube/yffFh6URbKk.jpg"),
-        dict(youtube="l9ROiAosJa8", title="How to Show (not tell) in a commercial", poster="assets/video/youtube/l9ROiAosJa8.jpg"),
-        dict(youtube="ZO2eAUfIK8Q", title="What content creators can learn from movies", poster="assets/video/youtube/ZO2eAUfIK8Q.jpg"),
-        dict(youtube="a1IXrCmJQQw", title="The beginner's guide to video editing programs", poster="assets/video/youtube/a1IXrCmJQQw.jpg"),
-        dict(youtube="NH79ypFhQ50", title="Why The Volume looks like that", poster="assets/video/youtube/NH79ypFhQ50.jpg"),
-    ],
-    stills=[],
-    overview="I make long-form videos where I break films down, sometimes shot by shot: composition, lens, camera movement, lighting, blocking, and pacing, and I try to say clearly why a shot works. That kind of shot-by-shot analysis is a visual evaluation of the footage — describing it precisely, and paying attention to temporal continuity from one cut to the next. It's the same habit I use when I write a shot list, and when I look at the footage after a shoot.\n\nThese seven videos are from the Klabunde Media Co. YouTube channel. Some of them go through a film that way; the titles include Fight Club and Tron: Ares. Others apply the same kind of attention to commercials, to how movie craft shows up in other work, and to video editing programs.",
+    overview="These videos were made for Klabunde Media Co. itself, not for a client.\n\nI make long-form videos where I break films down, sometimes shot by shot: composition, lens, camera movement, lighting, blocking, and pacing, and I try to say clearly why a shot works. That kind of shot-by-shot analysis is a visual evaluation of the footage — describing it precisely, and paying attention to temporal continuity from one cut to the next. It's the same habit I use when I write a shot list, and when I look at the footage after a shoot. The seven long-form videos here are from the Klabunde Media Co. YouTube channel. Some of them go through a film that way; the titles include Fight Club and Tron: Ares. Others apply the same kind of attention to commercials, to how movie craft shows up in other work, and to video editing programs.\n\nThe short-form videos are Instagram posts, also made for the company, posted from October 2025 to September 2026.",
     challenge="",
     approach="",
     differently="",
@@ -397,13 +376,17 @@ SIDES = {
    name="Klabunde Media Co.", sub="Business work", logo="kmc-logo.png", logo_cls=" kmc", hero="kmc-hero.jpg",
    reel=("Placeholder: company showreel", "16:9 slot, ready for a YouTube or Vimeo embed or a local MP4"),
    reel_title="Company Showreel",
+   reels=[
+    dict(title="Grading showreel", src="assets/video/kmc-showreels/grading-showreel.mp4", poster="assets/video/kmc-showreels/grading-showreel.jpg"),
+    dict(title="Sound design showreel", src="assets/video/kmc-showreels/sound-design-showreel.mp4", poster="assets/video/kmc-showreels/sound-design-showreel.jpg"),
+   ],
    tagline="Commercial, brand and social video production for businesses.",
    other="daniel",
    cats=[
     ("commercial", "Commercial &amp; Brand", "Product films, brand spots and campaigns, with notes on the brief, the constraints and the decisions behind each cut.",
      [ETHER, ZAIDI, CARMEL, NOOTRIMIND]),
     ("social", "Social Content", "Short-form vertical and feed content: hooks, pacing for the platform, and series built to be consistent week to week.",
-     [KMC_BREAKDOWNS, KMC_INHOUSE, LIV, MOON, RX]),
+     [KMC_INHOUSE, LIV, MOON, RX]),
    ],
    pages=[("about", "About")],
  ),
@@ -565,6 +548,41 @@ def landing():
     write("index.html", head("Daniel Klabunde · Klabunde Media Co.", 0) + body)
 
 # ---------------- SIDE HOME ----------------
+
+def home_reel_section(side, cfg, r):
+    """KMC home gets two real showreels; the Daniel side keeps the placeholder slot."""
+    reels = cfg.get("reels") or []
+    if reels:
+        blocks = []
+        for reel in reels:
+            title = html.escape(reel["title"])
+            src_v = r + reel["src"]
+            poster = r + reel["poster"]
+            blocks.append(
+                f'<div class="showreel">'
+                f'<h2>{title}</h2>'
+                f'<div class="video-set count-1 wide landscape">'
+                f'<figure class="video-item">'
+                f'<div class="video-frame landscape" data-slot="video">'
+                f'<video src="{src_v}" poster="{poster}" controls preload="none" playsinline></video>'
+                f'</div></figure></div></div>'
+            )
+        return (
+            f'<section id="reel" class="section reel"><div class="wrap">'
+            f'<div class="section-head"><div class="eyebrow">Showreels</div>'
+            f'<h2 class="sr-only">Showreels</h2></div>'
+            f'<div class="showreel-list">{"".join(blocks)}</div>'
+            f'</div></section>'
+        )
+    return (
+        f'<section id="reel" class="section reel"><div class="wrap">'
+        f'<div class="section-head"><div class="eyebrow">Showreel</div><h2>{cfg["reel_title"]}</h2></div>'
+        f'{video_slot(*cfg["reel"])}'
+        f'<p class="caption ph-text">Placeholder: one line about the reel (length, what\'s in it, tools used).</p>'
+        f'</div></section>'
+    )
+
+
 def home(side):
     cfg = SIDES[side]; r = "../"
     cards = ""
@@ -624,15 +642,11 @@ def home(side):
     {f'<img src="{r}assets/kmc-logo.png" alt="Klabunde Media Company" class="hero-logo">' if side != 'daniel' else ''}
     <div class="eyebrow light">{cfg['sub']}</div>
     <p class="hero-sub">{cfg['tagline']}</p>
-    <a href="#reel" class="btn">Watch the {'reel' if side == 'daniel' else 'showreel'}</a>
+    <a href="#reel" class="btn">Watch the {'reel' if side == 'daniel' else 'showreels'}</a>
   </div>
 </section>
 {x_cta if side == "daniel" else ""}
-<section id="reel" class="section reel"><div class="wrap">
-    <div class="section-head"><div class="eyebrow">Showreel</div><h2>{cfg['reel_title']}</h2></div>
-    {video_slot(*cfg['reel'])}
-    <p class="caption ph-text">Placeholder: one line about the reel (length, what's in it, tools used).</p>
-</div></section>
+{home_reel_section(side, cfg, r)}
 <section class="section intro"><div class="wrap intro-grid">
     <div><div class="eyebrow">About the work</div><h2>{intro_h}</h2></div>
     <div class="prose">{intro}</div>
@@ -734,40 +748,61 @@ def video_set_html(vids, depth):
             classes.append("wide")
     return f'<div class="video-set {" ".join(classes)}">' + "".join(items) + "</div>"
 
+def _section_wrap(body, heading="", anchor=""):
+    if not body:
+        return ""
+    aid = f' id="{html.escape(anchor)}"' if anchor else ""
+    head = f"<h2>{html.escape(heading)}</h2>" if heading else ""
+    if heading or anchor:
+        return f'<div class="video-section"{aid}>{head}{body}</div>'
+    return body
+
+def youtube_set_html(yt_list, depth):
+    items = []
+    for v in yt_list:
+        label = html.escape(v["title"])
+        date = v.get("date_label") or ""
+        cap = f'<figcaption class="yt-title">{label}'
+        if date:
+            cap += f'<span class="yt-date">{html.escape(date)}</span>'
+        cap += "</figcaption>"
+        items.append(
+            f'<figure class="video-item">{yt_lite(v["youtube"], v["poster"], v["title"], depth)}{cap}</figure>'
+        )
+    n = len(yt_list)
+    return f'<div class="video-set count-{n} landscape">{"".join(items)}</div>'
+
 def video_players(proj, depth):
+    parts = []
     yt_list = proj.get("youtube_videos") or []
     if yt_list:
-        items = []
-        for v in yt_list:
-            label = html.escape(v["title"])
-            date = v.get("date_label") or ""
-            cap = f'<figcaption class="yt-title">{label}'
-            if date:
-                cap += f'<span class="yt-date">{html.escape(date)}</span>'
-            cap += "</figcaption>"
-            items.append(
-                f'<figure class="video-item">{yt_lite(v["youtube"], v["poster"], v["title"], depth)}{cap}</figure>'
-            )
-        n = len(yt_list)
-        return f'<div class="video-set count-{n} landscape">{"".join(items)}</div>'
-    if proj.get("youtube"):
-        return f'<div class="video-set count-1 wide">{yt_lite(proj["youtube"], proj["poster"], proj["title"], depth)}</div>'
+        parts.append(_section_wrap(
+            youtube_set_html(yt_list, depth),
+            proj.get("youtube_heading") or "",
+            proj.get("youtube_anchor") or "",
+        ))
+    elif proj.get("youtube"):
+        parts.append(f'<div class="video-set count-1 wide">{yt_lite(proj["youtube"], proj["poster"], proj["title"], depth)}</div>')
     sections = proj.get("video_sections") or []
     if sections:
-        blocks = []
+        grids = []
         for sec in sections:
             heading = html.escape(sec["title"]) if sec.get("title") else ""
             vids = sec["videos"]
             verts = [v for v in vids if (v.get("aspect") or "9/16") == "9/16"]
             other = [v for v in vids if (v.get("aspect") or "9/16") != "9/16"]
-            body = ""
-            if verts and other:
-                body = video_set_html(verts, depth) + video_set_html(other, depth)
+            body = video_set_html(verts, depth) + video_set_html(other, depth) if verts and other else video_set_html(vids, depth)
+            if heading:
+                grids.append(f'<div class="video-section"><h2>{heading}</h2>{body}</div>')
             else:
-                body = video_set_html(vids, depth)
-            head = f"<h2>{heading}</h2>" if heading else ""
-            blocks.append(f'<div class="video-section">{head}{body}</div>')
-        return "".join(blocks)
+                grids.append(body)
+        parts.append(_section_wrap(
+            "".join(grids),
+            proj.get("videos_heading") or "",
+            proj.get("videos_anchor") or "",
+        ))
+    if parts:
+        return "".join(parts)
     vids = proj.get("videos") or []
     if not vids:
         return video_slot("Placeholder: project video", "Swap in the embed or MP4 for this project")
@@ -987,4 +1022,16 @@ if __name__ == "__main__":
         _body = shotlisting_page_body(_side, page_head)
         page(_side, f"{_side}/shot-listing/index.html", f"Shot listing · {html.unescape(SIDES[_side]['name'])}", 2, "shot-listing", _body)
         n += 1
-    print("built", n, "pages +", len(OLD), "redirects")
+    # Old standalone breakdowns page now lives on the in-house project.
+    _bd_target = "kmc-in-house.html#cinematography-breakdowns"
+    _bd_root = "../media-co/projects/kmc-in-house.html#cinematography-breakdowns"
+    def _moved(path, target):
+        write(path, f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Moved</title>
+<meta http-equiv="refresh" content="0; url={target}"><link rel="canonical" href="{target}">
+<script>location.replace({target!r});</script></head>
+<body style="background:#202123;color:#eff0eb;font-family:sans-serif">This page moved to <a style="color:#e07b3e" href="{target}">{target}</a>.</body></html>
+""")
+    _moved("media-co/projects/kmc-cinematography-breakdowns.html", _bd_target)
+    _moved("projects/kmc-cinematography-breakdowns.html", _bd_root)
+    print("built", n, "pages +", len(OLD) + 2, "redirects")
