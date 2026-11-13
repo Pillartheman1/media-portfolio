@@ -1023,10 +1023,12 @@ def daniel_about():
 def media_pages():
     body = page_head("media-co", 2, ["About"], "About the company", "Klabunde Media Co. is Daniel Klabunde's video production company.") + """
 <section class="section tight"><div class="wrap about-grid">
-    <div class="ph-thumb portrait"><span>Placeholder: company image</span></div>
+    <figure class="about-portrait">
+      <img src="../../assets/kmc-company-lounge.jpg" width="1205" height="1600" alt="Daniel Klabunde standing in an upscale lounge, talking on a phone, with a leather sofa in the foreground.">
+    </figure>
     <div class="prose">
       <h2>The company</h2>
-      <p class="ph-text">Placeholder: company story. When it started, what it makes, and the kinds of businesses it works with (described generally, no client names).</p>
+      <p>Klabunde Media Co. works with premium brands and luxury real estate in the Indianapolis area. I make cinematic media so the market sees those businesses at the top of their field. That positioning is what helps them grow and raise their prices.</p>
       <h2>How we work</h2>
       <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="../shot-listing/">More on how I write a shot list →</a></p>
       <p class="ph-text">Placeholder: approach, communication, review, and how ongoing work is handled.</p>
