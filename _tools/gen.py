@@ -623,7 +623,7 @@ def home(side):
         intro_extra = ""
         extra = ""
     else:
-        intro_h, intro = "Video that does a job.", """<p>Cinematography is how I use picture and sound to leave a viewer with a particular feeling. I get there by working with how people perceive a scene and how they react to what they see and hear. Recording what is in front of the lens is part of that work, which I treat as a science and as an art form.</p>"""
+        intro_h, intro = "Video that does a job.", """<p>Videography records what's in front of the camera. Cinematography is the work I do. I use picture and sound to leave a viewer with a specific feeling, by working with how people perceive a scene and how they react to what they see and hear. That makes it a science and an art form at once.</p>"""
         intro_extra = """
     <ol class="process-stages">
       <li class="process-stage">
