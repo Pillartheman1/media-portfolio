@@ -311,3 +311,6 @@ body.side-media-co .site-header{background:rgba(36,39,43,.82)}
 body.side-media-co .hero-overlay{background:linear-gradient(180deg,rgba(44,45,48,.15) 0%,rgba(44,45,48,.35) 55%,rgba(44,45,48,0) 100%)}
 body.side-media-co .side-hero-overlay{background:linear-gradient(180deg,rgba(44,45,48,0) 0%,rgba(44,45,48,.1) 55%,rgba(44,45,48,0) 100%)}
 .hero-logo{display:block;width:min(460px,70vw);height:auto;margin:0 auto 34px}
+body.side-media-co .side-hero{align-items:center}
+body.side-media-co .side-hero-content{padding:0 0 28px}
+body.side-media-co .hero-logo{margin-bottom:30px}
