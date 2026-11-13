@@ -1031,7 +1031,6 @@ def media_pages():
       <p>Klabunde Media Co. works with premium brands and luxury real estate in the Indianapolis area. I make cinematic media so the market sees those businesses at the top of their field. That positioning is what helps them grow and raise their prices.</p>
       <h2>How we work</h2>
       <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="../shot-listing/">More on how I write a shot list →</a></p>
-      <p class="ph-text">Placeholder: approach, communication, review, and how ongoing work is handled.</p>
       <h2>Who's behind it</h2>
       <p>Klabunde Media Co. is run by Daniel Klabunde. <a class="text-link" href="../../daniel/">See Daniel's personal work →</a></p>
     </div>
