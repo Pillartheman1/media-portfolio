@@ -314,3 +314,48 @@ body.side-media-co .side-hero-overlay{background:linear-gradient(180deg,rgba(44,
 body.side-media-co .side-hero{align-items:center}
 body.side-media-co .side-hero-content{padding:0 0 28px}
 body.side-media-co .hero-logo{margin-bottom:30px}
+
+/* Real project videos, thumbs, and KMC featured grid */
+.video-frame video{object-fit:contain;background:#111}
+.video-set{display:grid;gap:28px 32px;justify-content:center;margin:0 auto}
+.video-set.count-1{grid-template-columns:minmax(220px,380px)}
+.video-set.count-2{grid-template-columns:repeat(2,minmax(200px,360px))}
+.video-set.count-3{grid-template-columns:repeat(3,minmax(180px,320px))}
+.video-frame.vertical{aspect-ratio:9/16;width:100%;height:auto}
+.video-item{margin:0}
+.video-item figcaption{text-align:center;margin-top:12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.thumb.real{display:block;padding:0;overflow:hidden;aspect-ratio:16/9;border:0;border-bottom:1px solid var(--line)}
+.thumb.real img{width:100%;height:100%;object-fit:cover}
+.entry .thumb.real{border:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps.stills figure{margin:0;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.steps.stills img{width:100%;height:auto;display:block}
+/* KMC home: six featured cards, 3 + 3 */
+.features.kmc-featured{grid-template-columns:repeat(6,1fr)}
+.features.kmc-featured .feature{grid-column:span 2}
+.video-set.count-4{grid-template-columns:repeat(4,minmax(160px,280px))}
+.video-frame.ar-4-3{aspect-ratio:4/3}
+.video-set.count-1.wide{grid-template-columns:minmax(480px,840px)}
+@media (max-width:900px){
+  .video-set.count-2,.video-set.count-3{grid-template-columns:minmax(200px,360px)}
+  .video-set.count-4{grid-template-columns:repeat(2,minmax(160px,280px))}
+  .video-set.count-1.wide{grid-template-columns:minmax(220px,1fr)}
+  .features.kmc-featured{grid-template-columns:1fr}
+  .features.kmc-featured .feature{grid-column:auto}
+}
+
+/* Editron-edited cuts, shown as a distinct panel on the Zaidi Jewelers page */
+.editron-panel{
+  background:rgba(20,21,22,.62);
+  border:1px solid var(--line);
+  padding:40px 36px 44px;
+  margin-top:8px;
+}
+.editron-panel h2{font-size:32px;margin:0 0 10px}
+.editron-panel h2 a{color:#5fa8c8;border-bottom:1px solid rgba(95,168,200,.5)}
+.editron-panel h2 a:hover{border-bottom-color:#5fa8c8}
+.editron-panel .editron-lede{color:var(--muted);max-width:720px;margin:0 0 28px;font-size:16px;line-height:1.55}
+.video-set.count-8{grid-template-columns:repeat(4,minmax(150px,260px))}
+@media (max-width:900px){
+  .video-set.count-8{grid-template-columns:repeat(2,minmax(150px,260px))}
+  .editron-panel{padding:28px 20px 32px}
+}

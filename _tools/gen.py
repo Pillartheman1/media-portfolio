@@ -5,6 +5,178 @@ Old URLs (pre-split) get redirect stubs."""
 import os, html, shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def is_real(p):
+    return isinstance(p, dict)
+def pslug(p):
+    return p["slug"] if is_real(p) else p[0]
+def ptitle(p):
+    return p["title"] if is_real(p) else p[1]
+def psub(p):
+    return p["subtitle"] if is_real(p) else p[2]
+def paras(text, placeholder=False):
+    cls = ' class="ph-text"' if placeholder else ""
+    return "".join(f"<p{cls}>{html.escape(p.strip())}</p>" for p in text.split("\n\n") if p.strip())
+def detail_dd(label, value, placeholder=False):
+    ph = placeholder or (value or "").startswith("Placeholder")
+    cls = ' class="ph-text"' if ph else ""
+    return f"<dt>{label}</dt><dd{cls}>{html.escape(value)}</dd>"
+
+# Real KMC projects. Write-ups are first-person, limited to the videos and facts Daniel provided.
+ETHER = dict(
+    slug="ether-exotics",
+    title="Ether Exotics",
+    subtitle="Two vertical films for a luxury dog-breeding ranch in northern Indiana.",
+    summary="Two vertical videos for Ether Exotics, a luxury dog-breeding ranch in northern Indiana. Shot in a day, with about two days to prepare.",
+    category_name="Commercial &amp; Brand",
+    client="Ether Exotics",
+    role="Cinematography and edit",
+    tools="Sony a6100, DaVinci Resolve",
+    timeline="Booked with about two days' notice; full-day shoot",
+    deliverables="Two vertical videos, Lifestyle and Living Real Estate",
+    year="2025",
+    thumb="assets/video/ether-exotics/thumb.jpg",
+    videos=[
+        dict(label="Lifestyle", src="assets/video/ether-exotics/lifestyle.mp4", poster="assets/video/ether-exotics/lifestyle.jpg"),
+        dict(label="Living Real Estate", src="assets/video/ether-exotics/living-real-estate.mp4", poster="assets/video/ether-exotics/living-real-estate.jpg"),
+    ],
+    stills=[
+        dict(src="assets/video/ether-exotics/still-drone.jpg", cap="A drone look at the McLaren on the driveway"),
+        dict(src="assets/video/ether-exotics/still-utv.jpg", cap="Dogs and friends in the ranch UTV"),
+        dict(src="assets/video/ether-exotics/still-mclaren.jpg", cap="The McLaren 720S"),
+    ],
+    overview="I made two vertical videos for Ether Exotics, a luxury dog-breeding ranch in northern Indiana that sells dogs for more than $100,000. The brief was two films of the ranch, the owner and his friends, the dogs, and the cars on the property, including a McLaren 720S. The finished pieces are Lifestyle and Living Real Estate.",
+    challenge="The shoot came together in about two days. There was no shot list and no schedule, and I was working with a borrowed backup camera, a Sony a6100, because my own body wasn't available. The ranch is in northern Indiana, a long drive, and the day ran on Central Time. We had a full day on the property, which is what made the short window workable.",
+    approach="I spent the day walking the ranch and filming what was there: the dogs, a horse, cats, chickens, the people, and the cars. A drone shot looks down on the McLaren on the driveway. I didn't go in with a plan for individual setups. I just kept moving and covered the place. The two cuts came out of that footage.",
+    differently="I'd build in more prep time, even on a short-notice job, and I'd keep a spare camera body ready so I'm not borrowing one the day before a shoot.",
+)
+
+LIV = dict(
+    slug="liv-realty",
+    title="LIV Realty · Jacob Deacon",
+    subtitle="Short-form videos for Jacob Deacon and LIV Realty in Indianapolis.",
+    summary="Vertical videos for Jacob Deacon, the number one realtor in Indiana, and LIV Realty, his brokerage.",
+    category_name="Social Content",
+    client="LIV Realty / Jacob Deacon",
+    role="Placeholder: role",
+    tools="Placeholder: tools",
+    timeline="June 2026",
+    deliverables="Three vertical videos: LIV Indy, Life Story, and Why Most Agents Fail",
+    year="2026",
+    thumb="assets/video/liv-realty/thumb.jpg",
+    videos=[
+        dict(label="LIV Indy", src="assets/video/liv-realty/liv-indy.mp4", poster="assets/video/liv-realty/liv-indy.jpg"),
+        dict(label="Life Story", src="assets/video/liv-realty/life-story.mp4", poster="assets/video/liv-realty/life-story.jpg"),
+        dict(label="Why Most Agents Fail", src="assets/video/liv-realty/why-most-agents-fail.mp4", poster="assets/video/liv-realty/why-most-agents-fail.jpg"),
+    ],
+    stills=[],
+    overview="These are short vertical videos for Jacob Deacon, the number one realtor in Indiana, and LIV Realty, his brokerage, also the number one in the state. They were made in June 2026. Three pieces from that set are here: a brand video for the LIV Indy team, a personal story, and a talking-head on why most agents fail.",
+    challenge=None,
+    approach="LIV Indy cuts interview footage of Jacob with scenes of the team in the office. Life Story stays mostly on Jacob, with a little B-roll, as he talks about a roommate he barely knew, getting thrown out of an apartment, and an idea he thought could change other people's lives. Why Most Agents Fail is a talking-head piece about culture and working as a team.",
+    differently=None,
+)
+
+MOON = dict(
+    slug="moon-speaks-style",
+    title="Moon Speaks Style",
+    subtitle="A short vertical piece for Moon's personal brand.",
+    summary="A short style video for Moon Speaks Style, Moon's personal brand.",
+    category_name="Social Content",
+    client="Moon Speaks Style",
+    role="Production",
+    tools="DaVinci Resolve",
+    timeline="Placeholder: timeline",
+    deliverables="One vertical video",
+    year="2025",
+    thumb="assets/video/moon-speaks-style/thumb.jpg",
+    videos=[dict(label="Moon Speaks Style", src="assets/video/moon-speaks-style/moon-speaks-style.mp4", poster="assets/video/moon-speaks-style/poster.jpg")],
+    stills=[],
+    overview="I made a short vertical video for Moon Speaks Style, Moon's personal brand. Moon also owns Carmel Tailoring; this piece is for the personal brand, not for the shop. It's shot in close: a cigar being cut and lit, a skeleton watch, the texture of a jacket. The piece ends on a Klabunde Media Company card.",
+    challenge=None,
+    approach=None,
+    differently=None,
+)
+
+NOOTRIMIND = dict(
+    slug="nootrimind",
+    title="Nootrimind",
+    subtitle="A vertical brand film for a mental wellness supplement company in Indianapolis.",
+    summary="A vertical brand film for Nootrimind, a mental wellness supplement brand based in Indianapolis.",
+    category_name="Commercial &amp; Brand",
+    client="Nootrimind",
+    role="Placeholder: role",
+    tools="DaVinci Resolve",
+    timeline="Placeholder: timeline",
+    deliverables="One vertical brand film",
+    year="2025",
+    thumb="assets/video/nootrimind/thumb.jpg",
+    videos=[dict(label="Nootrimind", src="assets/video/nootrimind/nootrimind.mp4", poster="assets/video/nootrimind/poster.jpg")],
+    stills=[],
+    overview="I made a vertical brand film for Nootrimind, a mental wellness supplement brand based in Indianapolis. The film follows the founder, Joe, as he tells his story: watching his father go through dementia, then facing his own struggles with brain fog, confusion, and addiction after time in the Army. He talks about turning to fitness, wellness, and natural nootropics, and says he built the brand to help others find calm, focus, and balance. Later in the piece he talks about giving back to causes that matter to him, including the Alzheimer's Association, in honor of his father, and the Headstrong Project. The film ends on the NootriMind mark.",
+    challenge=None,
+    approach=None,
+    differently=None,
+)
+
+RX = dict(
+    slug="rx-building-murph",
+    title="The RX Building · CrossFit Murph",
+    subtitle="An event recap of the CrossFit Murph at The RX Building.",
+    summary="An event recap of the CrossFit Murph at The RX Building, a community health center and CrossFit gym.",
+    category_name="Social Content",
+    client="The RX Building",
+    role="Placeholder: role",
+    tools="DaVinci Resolve",
+    timeline="Placeholder: timeline",
+    deliverables="One event recap video",
+    year="2026",
+    thumb="assets/video/rx-building-murph/thumb.jpg",
+    videos=[dict(label="CrossFit Murph", src="assets/video/rx-building-murph/rx-building-murph.mp4", poster="assets/video/rx-building-murph/poster.jpg", aspect="4/3")],
+    stills=[],
+    overview="I made an event recap for The RX Building, a community health center and CrossFit gym, covering their CrossFit Murph. The video is a minute long and stays with the people in the gym: athletes working, a group coming through the doors, close shots of the barbells and the effort on people's faces. It opens and closes on black.",
+    challenge=None,
+    approach=None,
+    differently=None,
+)
+
+
+ZAIDI = dict(
+    slug="zaidi-jewelers",
+    title="Zaidi Jewelers",
+    subtitle="Short vertical films for a premium jewelry brand in Indianapolis.",
+    summary="Four short vertical videos for Zaidi Jewelers, a premium jewelry brand in Indianapolis.",
+    category_name="Commercial &amp; Brand",
+    client="Zaidi Jewelers",
+    role="Placeholder: role",
+    tools="DaVinci Resolve",
+    timeline="September 2026",
+    deliverables="Four short vertical videos",
+    year="2026",
+    thumb="assets/video/zaidi-jewelers/thumb.jpg",
+    videos=[
+        dict(label="Pendants", src="assets/video/zaidi-jewelers/zaidi-1.mp4", poster="assets/video/zaidi-jewelers/zaidi-1.jpg"),
+        dict(label="Worn", src="assets/video/zaidi-jewelers/zaidi-2.mp4", poster="assets/video/zaidi-jewelers/zaidi-2.jpg"),
+        dict(label="The sketch", src="assets/video/zaidi-jewelers/zaidi-4.mp4", poster="assets/video/zaidi-jewelers/zaidi-4.jpg"),
+        dict(label="The box", src="assets/video/zaidi-jewelers/zaidi-6.mp4", poster="assets/video/zaidi-jewelers/zaidi-6.jpg"),
+    ],
+    editron_videos=[
+        dict(label="Cafe", src="assets/video/zaidi-jewelers/editron/cafe.mp4", poster="assets/video/zaidi-jewelers/editron/cafe.jpg"),
+        dict(label="Date", src="assets/video/zaidi-jewelers/editron/date.mp4", poster="assets/video/zaidi-jewelers/editron/date.jpg"),
+        dict(label="Event 1", src="assets/video/zaidi-jewelers/editron/event-1.mp4", poster="assets/video/zaidi-jewelers/editron/event-1.jpg"),
+        dict(label="Event 2", src="assets/video/zaidi-jewelers/editron/event-2.mp4", poster="assets/video/zaidi-jewelers/editron/event-2.jpg"),
+        dict(label="Event 3", src="assets/video/zaidi-jewelers/editron/event-3.mp4", poster="assets/video/zaidi-jewelers/editron/event-3.jpg"),
+        dict(label="Newspaper, City Center", src="assets/video/zaidi-jewelers/editron/newspaper-city-center.mp4", poster="assets/video/zaidi-jewelers/editron/newspaper-city-center.jpg"),
+        dict(label="Phone Captions", src="assets/video/zaidi-jewelers/editron/phone-captions.mp4", poster="assets/video/zaidi-jewelers/editron/phone-captions.jpg"),
+        dict(label="Steering Wheel", src="assets/video/zaidi-jewelers/editron/steering-wheel.mp4", poster="assets/video/zaidi-jewelers/editron/steering-wheel.jpg"),
+    ],
+    stills=[],
+    overview="I made a set of short vertical videos for Zaidi Jewelers, a premium jewelry brand in Indianapolis, in September 2026. Four of them are here. One is a close look at pendants on a bust. Another puts the pieces on a person: earrings, a necklace, rings. A third follows a ring from a pencil sketch to the finished piece in its box. The last opens on a Zaidi Jewelers box and then shows the jewelry being worn.",
+    challenge=None,
+    approach=None,
+    differently=None,
+)
+
+FEATURED_KMC = [ETHER, ZAIDI, LIV, MOON, NOOTRIMIND, RX]
+
 SIDES = {
  "daniel": dict(
    name="Daniel Klabunde", sub="Personal work", logo="monogram.png", logo_cls="", hero="header.jpg",
@@ -36,13 +208,11 @@ SIDES = {
    other="daniel",
    cats=[
     ("commercial", "Commercial &amp; Brand", "Product films, brand spots and campaigns, with notes on the brief, the constraints and the decisions behind each cut.",
-     [("commercial-01", "Placeholder: Product Launch Film", "30s and 15s spot, plus social cutdowns"),
-      ("commercial-02", "Placeholder: Brand Story Series", "A multi-part brand series")]),
+     [ETHER, ZAIDI, NOOTRIMIND]),
     ("social", "Social Content", "Short-form vertical and feed content: hooks, pacing for the platform, and series built to be consistent week to week.",
-     [("social-01", "Placeholder: Weekly Reel Series", "Recurring short-form deliverables"),
-      ("social-02", "Placeholder: Launch Week Social Pack", "A set of cutdowns for one campaign")]),
+     [LIV, MOON, RX]),
    ],
-   pages=[("services", "Services"), ("about", "About"), ("contact", "Contact")],
+   pages=[("about", "About")],
  ),
 }
 OLD = {  # old path -> new path (redirect stubs)
@@ -52,8 +222,18 @@ OLD = {  # old path -> new path (redirect stubs)
 for side, cfg in SIDES.items():
     for c in cfg["cats"]:
         for p in c[3]:
-            if not p[0].startswith("social"):
-                OLD[f"projects/{p[0]}.html"] = f"{side}/projects/{p[0]}.html"
+            slug = pslug(p)
+            if not slug.startswith("social"):
+                OLD[f"projects/{slug}.html"] = f"{side}/projects/{slug}.html"
+# Old placeholder slugs redirect to the real projects that replaced them.
+OLD.update({
+    "projects/commercial-01.html": "media-co/projects/ether-exotics.html",
+    "projects/commercial-02.html": "media-co/projects/nootrimind.html",
+    "media-co/projects/commercial-01.html": "media-co/projects/ether-exotics.html",
+    "media-co/projects/commercial-02.html": "media-co/projects/nootrimind.html",
+    "media-co/projects/social-01.html": "media-co/projects/liv-realty.html",
+    "media-co/projects/social-02.html": "media-co/projects/moon-speaks-style.html",
+})
 
 def rel(depth): return "../" * depth
 import hashlib as _h, pathlib as _p
@@ -108,7 +288,6 @@ def header(side, depth, active=None):
 def footer(side, depth):
     cfg = SIDES[side]; r = rel(depth); s = f"{r}{side}/"; o = SIDES[cfg["other"]]
     cols = "".join(f'<li><a href="{s}{slug}/">{n}</a></li>' for slug, n in nav_items(side))
-    contact = f"{s}contact/" if side == "media-co" else f"{s}about/#contact"
     return f"""<footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
@@ -117,7 +296,7 @@ def footer(side, depth):
       <p><a href="{r}{cfg['other']}/">Visit {o['name']} →</a><br><a href="{r}index.html">← Back to the landing page</a></p>
     </div>
     <div><h4>Explore</h4><ul>{cols}</ul></div>
-    <div><h4>Contact</h4><ul><li><a href="{contact}">Get in touch</a></li><li><a href="{X_URL}" target="_blank" rel="noopener">X: {X_HANDLE}</a> <span class="muted small">(AI, filmmaking &amp; engineering)</span></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: other social links</li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="{X_URL}" target="_blank" rel="noopener">X: {X_HANDLE}</a> <span class="muted small">(AI, filmmaking &amp; engineering)</span></li><li class="ph-inline">Placeholder: email</li><li class="ph-inline">Placeholder: other social links</li></ul></div>
   </div>
   <div class="wrap footer-base">© 2026 Daniel Klabunde · Klabunde Media Co.</div>
 </footer>
@@ -192,14 +371,31 @@ def home(side):
         cards += f"""<a class="cat-row" href="{slug}/"><span class="cat-num">0{i}</span>
         <span class="cat-body"><h3>{name}</h3><p>{blurb}</p></span>
         <span class="cat-meta">{len(projs)} projects <span class="arrow">→</span></span></a>"""
-    feats = [(c[1], c[3][0]) for c in cfg["cats"]]
-    if len(feats) < 3: feats.append((cfg["cats"][0][1], cfg["cats"][0][3][1]))
-    feat = "".join(f"""<article class="feature">
-        <a href="projects/{p[0]}.html" class="thumb ph-thumb"><span>Placeholder still</span></a>
+    if side == "media-co":
+        feats = [(proj["category_name"], proj) for proj in FEATURED_KMC]
+        feat_class = "features kmc-featured"
+    else:
+        feats = [(c[1], c[3][0]) for c in cfg["cats"]]
+        if len(feats) < 3: feats.append((cfg["cats"][0][1], cfg["cats"][0][3][1]))
+        feats = feats[:3]
+        feat_class = "features"
+    feat_cards = []
+    for cn, proj in feats:
+        slug, title = pslug(proj), html.escape(ptitle(proj))
+        href = f"projects/{slug}.html"
+        if is_real(proj) and proj.get("thumb"):
+            thumb = f'<a href="{href}" class="thumb real"><img src="{r}{proj["thumb"]}" alt=""></a>'
+            summary = f'<p>{html.escape(proj["summary"])}</p>'
+        else:
+            thumb = f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
+            summary = '<p class="ph-text">Placeholder: a two-sentence summary of the project and the story behind it goes here.</p>'
+        feat_cards.append(f"""<article class="feature">
+        {thumb}
         <div class="feature-body"><div class="eyebrow">{cn}</div>
-          <h3><a href="projects/{p[0]}.html">{p[1]}</a></h3>
-          <p class="ph-text">Placeholder: a two-sentence summary of the project and the story behind it goes here.</p>
-          <a class="text-link" href="projects/{p[0]}.html">Read the story →</a></div></article>""" for cn, p in feats[:3])
+          <h3><a href="{href}">{title}</a></h3>
+          {summary}
+          <a class="text-link" href="{href}">Read the story →</a></div></article>""")
+    feat = "".join(feat_cards)
     if side == "daniel":
         intro_h, intro = "Stories, not collages.", """<p class="ph-text">Placeholder: short intro. Two or three sentences about how Daniel approaches editing, pacing and color in his personal work.</p>
       <p>Every project here has its own page with the role, the tools, and the full story of how it came together, including what I'd do differently next time.</p>
@@ -209,11 +405,7 @@ def home(side):
         intro_h, intro = "Video that does a job.", """<p class="ph-text">Placeholder: short company intro. What Klabunde Media Co. makes, who it's for (described generally, no client names), and how a project runs.</p>
       <p>Each case study covers the brief, the deliverables and how the edit solved the problem.</p>
       <a class="text-link" href="about/">About the company →</a>"""
-        extra = """<section class="section"><div class="wrap">
-    <div class="section-head"><div class="eyebrow">What we do</div><h2>Services</h2></div>
-    <div class="svc-grid">""" + "".join(f"""<div class="svc"><h3>{t}</h3><p class="ph-text">Placeholder: one or two lines describing this service.</p></div>""" for t in ["Commercial &amp; brand films", "Social content", "Editing &amp; post-production", "Color grading"]) + """</div>
-    <p style="margin-top:28px"><a class="text-link" href="services/">All services →</a></p></div></section>"""
-    cta = "contact/" if side == "media-co" else "about/#contact"
+        extra = ""
     x_cta = f"""<section class="x-cta"><div class="wrap x-cta-inner">
     <div class="x-cta-mark">{X_SVG}</div>
     <div class="x-cta-text"><div class="eyebrow">On X</div>
@@ -244,29 +436,42 @@ def home(side):
 </div></section>
 <section class="section"><div class="wrap">
     <div class="section-head"><div class="eyebrow">Selected work</div><h2>Featured projects</h2></div>
-    <div class="features">{feat}</div>
+    <div class="{feat_class}">{feat}</div>
 </div></section>
 <section class="section alt"><div class="wrap">
     <div class="section-head"><div class="eyebrow">Browse</div><h2>Types of work</h2></div>
     <div class="cat-list">{cards}</div>
 </div></section>
 {extra}
-<section class="section cta"><div class="wrap cta-inner">
-    <h2>Have a project in mind?</h2><a class="btn" href="{cta}">Get in touch</a>
-</div></section>
 """
     page(side, f"{side}/index.html", f"{html.unescape(cfg['name'])}", 1, None, body)
 
 # ---------------- CATEGORY ----------------
-def category(side, slug, name, blurb, projs):
-    items = "".join(f"""<article class="entry">
-      <a href="../projects/{p}.html" class="thumb ph-thumb"><span>Placeholder still</span></a>
+def category_entry(proj):
+    slug, title, sub = pslug(proj), html.escape(ptitle(proj)), html.escape(psub(proj))
+    href = f"../projects/{slug}.html"
+    if is_real(proj):
+        def meta_span(val):
+            cls = ' class="ph-text"' if (val or "").startswith("Placeholder") else ""
+            return f"<span{cls}>{html.escape(val)}</span>"
+        thumb = f'<a href="{href}" class="thumb real"><img src="../../{proj["thumb"]}" alt=""></a>' if proj.get("thumb") else f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
+        meta = f'<div class="entry-meta">{meta_span(proj["year"])}{meta_span(proj["role"])}{meta_span(proj["tools"])}</div>'
+        preview = f'<p>{html.escape(proj["summary"])}</p>'
+    else:
+        thumb = f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
+        meta = '<div class="entry-meta"><span>Placeholder: year</span><span>Placeholder: role</span><span>Placeholder: tools</span></div>'
+        preview = '<p class="ph-text">Placeholder: project story preview. A short paragraph on the goal, the challenge and how the edit solved it. The full write-up lives on the project page.</p>'
+    return f"""<article class="entry">
+      {thumb}
       <div class="entry-body">
-        <div class="entry-meta"><span>Placeholder: year</span><span>Placeholder: role</span><span>Placeholder: tools</span></div>
-        <h2><a href="../projects/{p}.html">{t}</a></h2><p class="entry-sub">{sub}</p>
-        <p class="ph-text">Placeholder: project story preview. A short paragraph on the goal, the challenge and how the edit solved it. The full write-up lives on the project page.</p>
-        <a class="text-link" href="../projects/{p}.html">Read the full story →</a>
-      </div></article>""" for p, t, sub in projs)
+        {meta}
+        <h2><a href="{href}">{title}</a></h2><p class="entry-sub">{sub}</p>
+        {preview}
+        <a class="text-link" href="{href}">Read the full story →</a>
+      </div></article>"""
+
+def category(side, slug, name, blurb, projs):
+    items = "".join(category_entry(proj) for proj in projs)
     extra = ""
     if slug == "ai-evaluation":
         extra = """<aside class="note-box"><div class="eyebrow">Side note</div><p>I've also written editing rules and critiques to train an AI editing assistant (Editron). That work is a small part of this section; the focus here is my own judgment of what makes a shot work or fail.</p></aside>"""
@@ -274,8 +479,122 @@ def category(side, slug, name, blurb, projs):
     page(side, f"{side}/{slug}/index.html", f"{html.unescape(name)} · {html.unescape(SIDES[side]['name'])}", 2, slug, body)
 
 # ---------------- PROJECT ----------------
-def project(side, cat, pslug, ptitle, psub, nxt):
+def video_players(proj, depth):
+    r = rel(depth)
+    vids = proj.get("videos") or []
+    if not vids:
+        return video_slot("Placeholder: project video", "Swap in the embed or MP4 for this project")
+    n = len(vids)
+    items = []
+    for v in vids:
+        label = html.escape(v["label"])
+        src = r + v["src"]
+        poster = r + v["poster"]
+        aspect = v.get("aspect") or "9/16"
+        frame_cls = "vertical" if aspect == "9/16" else ("ar-4-3" if aspect == "4/3" else "")
+        cap = f"<figcaption>{label}</figcaption>" if n > 1 else ""
+        items.append(
+            f'<figure class="video-item">'
+            f'<div class="video-frame {frame_cls}" data-slot="video">'
+            f'<video src="{src}" poster="{poster}" controls preload="none" playsinline></video>'
+            f'</div>{cap}</figure>'
+        )
+    wide = " wide" if n == 1 and (vids[0].get("aspect") or "9/16") != "9/16" else ""
+    return f'<div class="video-set count-{n}{wide}">' + "".join(items) + "</div>"
+
+
+EDITRON_URL = "https://pillartheman1.github.io/engineering-portfolio/projects/editron/"
+
+def editron_panel(proj, depth):
+    vids = proj.get("editron_videos") or []
+    if not vids:
+        return ""
+    r = rel(depth)
+    items = []
+    for v in vids:
+        label = html.escape(v["label"])
+        src_v = r + v["src"]
+        poster = r + v["poster"]
+        items.append(
+            f'<figure class="video-item">'
+            f'<div class="video-frame vertical" data-slot="video">'
+            f'<video src="{src_v}" poster="{poster}" controls preload="none" playsinline></video>'
+            f'</div><figcaption>{label}</figcaption></figure>'
+        )
+    n = len(vids)
+    grid = f'<div class="video-set count-{n}">' + "".join(items) + "</div>"
+    return (
+        f'<section class="section tight"><div class="wrap">'
+        f'<div class="editron-panel">'
+        f'<h2>Edited by <a href="{EDITRON_URL}" target="_blank" rel="noopener">Editron</a></h2>'
+        f'<p class="editron-lede">These cuts were edited by Editron, the AI editing system I built, from footage of the same Zaidi Jewelers work.</p>'
+        f'{grid}'
+        f'</div></div></section>'
+    )
+
+def stills_block(proj, depth):
+    stills = proj.get("stills") or []
+    if not stills:
+        return ""
+    r = rel(depth)
+    figs = "".join(
+        f'<figure><img src="{r}{s["src"]}" alt="{html.escape(s.get("cap") or "")}"><figcaption>{html.escape(s.get("cap") or "")}</figcaption></figure>'
+        for s in stills
+    )
+    return f'<section class="block"><h2>Stills</h2><div class="steps stills">{figs}</div></section>'
+
+def story_section(title, text, placeholder=False):
+    if not text and not placeholder:
+        return ""
+    if not text:
+        text = "Placeholder: this section will be filled in when I have more to say about it."
+        placeholder = True
+    return f'<section class="block"><h2>{title}</h2>{paras(text, placeholder)}</section>'
+
+def project(side, cat, p, nxt):
     cslug, cname = cat[0], cat[1]
+    slug, title, sub = pslug(p), ptitle(p), psub(p)
+    nxt_slug, nxt_title = pslug(nxt), ptitle(nxt)
+    if is_real(p):
+        details = [
+            ("Client", p.get("client") or ""),
+            ("Category", cname),
+            ("Role", p.get("role") or "Placeholder: role"),
+            ("Tools", p.get("tools") or "Placeholder: tools"),
+            ("Timeline", p.get("timeline") or "Placeholder: timeline"),
+            ("Deliverables", p.get("deliverables") or "Placeholder: deliverables"),
+            ("Year", p.get("year") or "Placeholder: year"),
+        ]
+        dl = []
+        for label, value in details:
+            if label == "Category":
+                cls = ""
+                dl.append(f"<dt>{label}</dt><dd{cls}>{value}</dd>")
+            else:
+                dl.append(detail_dd(label, value))
+        challenge = p.get("challenge")
+        approach = p.get("approach")
+        differently = p.get("differently")
+        body = f"""<article class="project">
+  {page_head(side, 2, [f'<a href="../{cslug}/">{cname}</a>', 'Project'], html.escape(title), html.escape(sub))}
+  <section class="section tight"><div class="wrap">{video_players(p, 2)}</div></section>
+  {editron_panel(p, 2)}
+  <section class="section tight"><div class="wrap project-grid">
+      <div class="prose story">
+        {story_section("Overview", p.get("overview") or "")}
+        {story_section("The challenge", challenge, placeholder=challenge is None)}
+        {story_section("My approach", approach, placeholder=approach is None)}
+        {stills_block(p, 2)}
+        {story_section("What I'd do differently", differently, placeholder=differently is None)}
+      </div>
+      <aside class="details"><div class="details-card"><h3>Project details</h3><dl>
+            {"".join(dl)}
+      </dl></div></aside>
+  </div></section>
+  <section class="section tight"><div class="wrap pager"><a href="../{cslug}/">← All {cname}</a><a href="{nxt_slug}.html">Next project: {html.escape(nxt_title)} →</a></div></section>
+</article>"""
+        page(side, f"{side}/projects/{slug}.html", f"{title} · {html.unescape(SIDES[side]['name'])}", 2, cslug, body, script=True)
+        return
     if cslug == "color":
         block = """<section class="block"><h2>Before / After</h2>
         <div class="ba" data-ba>
@@ -298,7 +617,7 @@ def project(side, cat, pslug, ptitle, psub, nxt):
         block = """<section class="block"><h2>Stills</h2><div class="steps">""" + "<figure><div class=\"ph-thumb small\"><span>Placeholder still</span></div></figure>" * 3 + "</div></section>"
     who = "who it was for (described generally, no client names), " if side == "media-co" else ""
     body = f"""<article class="project">
-  {page_head(side, 2, [f'<a href="../{cslug}/">{cname}</a>', 'Project'], ptitle, psub)}
+  {page_head(side, 2, [f'<a href="../{cslug}/">{cname}</a>', 'Project'], title, sub)}
   <section class="section tight"><div class="wrap">{video_slot("Placeholder: project video", "Swap in the embed or MP4 for this project")}</div></section>
   <section class="section tight"><div class="wrap project-grid">
       <div class="prose story">
@@ -318,9 +637,10 @@ def project(side, cat, pslug, ptitle, psub, nxt):
             <dt>Year</dt><dd class="ph-text">Placeholder: year</dd>
       </dl></div></aside>
   </div></section>
-  <section class="section tight"><div class="wrap pager"><a href="../{cslug}/">← All {cname}</a><a href="{nxt[0]}.html">Next project: {nxt[1]} →</a></div></section>
+  <section class="section tight"><div class="wrap pager"><a href="../{cslug}/">← All {cname}</a><a href="{nxt_slug}.html">Next project: {html.escape(nxt_title)} →</a></div></section>
 </article>"""
-    page(side, f"{side}/projects/{pslug}.html", f"{html.unescape(ptitle)} · {html.unescape(SIDES[side]['name'])}", 2, cslug, body, script=True)
+    page(side, f"{side}/projects/{slug}.html", f"{html.unescape(title)} · {html.unescape(SIDES[side]['name'])}", 2, cslug, body, script=True)
+
 
 # ---------------- STATIC PAGES ----------------
 def contact_card(side):
@@ -351,13 +671,6 @@ def daniel_about():
     page("daniel", "daniel/about/index.html", "About Daniel · Daniel Klabunde", 2, "about", body)
 
 def media_pages():
-    svcs = ["Commercial &amp; brand films", "Social content", "Editing &amp; post-production", "Color grading", "Motion graphics &amp; titles"]
-    rows = "".join(f"""<article class="svc-row"><h3>{s}</h3><div><p class="ph-text">Placeholder: what this service includes, typical deliverables and turnaround.</p>
-      <ul class="plain-list ph-text"><li>Placeholder: deliverable</li><li>Placeholder: deliverable</li></ul></div></article>""" for s in svcs)
-    body = page_head("media-co", 2, ["Services"], "Services", "What Klabunde Media Co. offers businesses.") + f"""
-<section class="section tight"><div class="wrap"><div class="svc-list">{rows}</div>
-<div class="note-box"><div class="eyebrow">How a project runs</div><p class="ph-text">Placeholder: brief → plan → shoot/edit → review rounds → delivery.</p></div></div></section>"""
-    page("media-co", "media-co/services/index.html", "Services · Klabunde Media Co.", 2, "services", body)
     body = page_head("media-co", 2, ["About"], "About the company", "Klabunde Media Co. is Daniel Klabunde's video production company.") + """
 <section class="section tight"><div class="wrap about-grid">
     <div class="ph-thumb portrait"><span>Placeholder: company image</span></div>
@@ -371,12 +684,6 @@ def media_pages():
     </div>
 </div></section>"""
     page("media-co", "media-co/about/index.html", "About · Klabunde Media Co.", 2, "about", body)
-    body = page_head("media-co", 2, ["Contact"], "Contact", "Tell us about your project.") + f"""
-<section class="section tight"><div class="wrap contact-grid">
-    <div class="prose"><h2>Start a project</h2><p class="ph-text">Placeholder: what to include in an inquiry (goals, deliverables, timeline, budget range) and how fast you'll hear back.</p></div>
-    {contact_card("media-co")}
-</div></section>"""
-    page("media-co", "media-co/contact/index.html", "Contact · Klabunde Media Co.", 2, "contact", body)
 
 def redirects():
     for old, new in OLD.items():
@@ -401,6 +708,6 @@ if __name__ == "__main__":
         for c in cfg["cats"]: category(side, *c); n += 1
         for i, (c, p) in enumerate(allp):
             nx = allp[(i + 1) % len(allp)][1]
-            project(side, c, p[0], p[1], p[2], (nx[0], nx[1])); n += 1
-    daniel_about(); media_pages(); n += 4
+            project(side, c, p, nx); n += 1
+    daniel_about(); media_pages(); n += 2
     print("built", n, "pages +", len(OLD), "redirects")
