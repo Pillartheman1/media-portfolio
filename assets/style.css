@@ -380,12 +380,22 @@ body.side-daniel .nav-wrap{gap:18px}
 .video-section:last-child{margin-bottom:0}
 .video-section h2{font-size:30px;margin:0 0 24px}
 .video-set.landscape.count-2,
-.video-set.landscape.count-4{grid-template-columns:repeat(2,minmax(300px,560px))}
+.video-set.landscape.count-4,
+.video-set.landscape.count-3,
+.video-set.landscape.count-5,
+.video-set.landscape.count-6,
+.video-set.landscape.count-7{grid-template-columns:repeat(2,minmax(300px,560px))}
 .video-frame.landscape{aspect-ratio:16/9}
 .video-section .video-set + .video-set{margin-top:36px}
+.video-item figcaption.yt-title{text-transform:none;letter-spacing:0;font-size:15px;line-height:1.45;color:var(--text)}
+.video-item figcaption.yt-title .yt-date{display:block;margin-top:4px;font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 @media (max-width:900px){
   .video-set.landscape.count-2,
-  .video-set.landscape.count-4{grid-template-columns:minmax(220px,1fr)}
+  .video-set.landscape.count-4,
+  .video-set.landscape.count-3,
+  .video-set.landscape.count-5,
+  .video-set.landscape.count-6,
+  .video-set.landscape.count-7{grid-template-columns:minmax(220px,1fr)}
 }
 
 

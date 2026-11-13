@@ -334,6 +334,40 @@ KMC_INHOUSE = dict(
     differently="",
 )
 
+
+# Titles from YouTube oEmbed. Upload dates could not be read from the
+# watch pages this time (YouTube returned 429 / a sign-in wall from this
+# network), so year and timeline are omitted rather than guessed.
+KMC_BREAKDOWNS = dict(
+    slug="kmc-cinematography-breakdowns",
+    title="Klabunde Media Co. — Cinematography breakdowns",
+    subtitle="Long-form YouTube videos on cinematography and how films are put together.",
+    summary="Long-form YouTube videos from Klabunde Media Co. on cinematography, including shot-by-shot looks at how films are put together.",
+    category_name="Social Content",
+    client="Klabunde Media Co.",
+    role="Producer, Director of Photography, Editor/Colorist",
+    tools="",
+    timeline="",
+    deliverables="Seven YouTube videos",
+    year="",
+    thumb="assets/video/youtube/WMqc3-s1qb4.jpg",
+    videos=[],
+    youtube_videos=[
+        dict(youtube="vNNUMxLY1tU", title="I REJECTED a $10K deal with Porsche and learned this:", poster="assets/video/youtube/vNNUMxLY1tU.jpg"),
+        dict(youtube="WMqc3-s1qb4", title="Why Fight Club looks like that...", poster="assets/video/youtube/WMqc3-s1qb4.jpg"),
+        dict(youtube="yffFh6URbKk", title="What filmmakers can learn from the disaster of Tron: Ares", poster="assets/video/youtube/yffFh6URbKk.jpg"),
+        dict(youtube="l9ROiAosJa8", title="How to Show (not tell) in a commercial", poster="assets/video/youtube/l9ROiAosJa8.jpg"),
+        dict(youtube="ZO2eAUfIK8Q", title="What content creators can learn from movies", poster="assets/video/youtube/ZO2eAUfIK8Q.jpg"),
+        dict(youtube="a1IXrCmJQQw", title="The beginner's guide to video editing programs", poster="assets/video/youtube/a1IXrCmJQQw.jpg"),
+        dict(youtube="NH79ypFhQ50", title="Why The Volume looks like that", poster="assets/video/youtube/NH79ypFhQ50.jpg"),
+    ],
+    stills=[],
+    overview="I make long-form videos where I break films down, sometimes shot by shot: composition, lens, camera movement, lighting, blocking, and pacing, and I try to say clearly why a shot works. That kind of shot-by-shot analysis is a visual evaluation of the footage — describing it precisely, and paying attention to temporal continuity from one cut to the next. It's the same habit I use when I write a shot list, and when I look at the footage after a shoot.\n\nThese seven videos are from the Klabunde Media Co. YouTube channel. Some of them go through a film that way; the titles include Fight Club and Tron: Ares. Others apply the same kind of attention to commercials, to how movie craft shows up in other work, and to video editing programs.",
+    challenge="",
+    approach="",
+    differently="",
+)
+
 FEATURED_KMC = [ETHER, ZAIDI, LIV, CARMEL, NOOTRIMIND, RX]
 
 SIDES = {
@@ -369,7 +403,7 @@ SIDES = {
     ("commercial", "Commercial &amp; Brand", "Product films, brand spots and campaigns, with notes on the brief, the constraints and the decisions behind each cut.",
      [ETHER, ZAIDI, CARMEL, NOOTRIMIND]),
     ("social", "Social Content", "Short-form vertical and feed content: hooks, pacing for the platform, and series built to be consistent week to week.",
-     [LIV, MOON, RX, KMC_INHOUSE]),
+     [KMC_BREAKDOWNS, KMC_INHOUSE, LIV, MOON, RX]),
    ],
    pages=[("about", "About")],
  ),
@@ -630,7 +664,11 @@ def category_entry(proj):
             thumb = f'<a href="{href}" class="thumb real"><img src="../../{proj["thumb"]}" alt=""></a>'
         else:
             thumb = f'<a href="{href}" class="thumb ph-thumb"><span>Placeholder still</span></a>'
-        meta_bits = [meta_span(proj["year"]), meta_span(proj["role"])]
+        meta_bits = []
+        if proj.get("year"):
+            meta_bits.append(meta_span(proj["year"]))
+        if proj.get("role"):
+            meta_bits.append(meta_span(proj["role"]))
         if proj.get("tools"):
             meta_bits.append(meta_span(proj["tools"]))
         meta = f'<div class="entry-meta">{"".join(meta_bits)}</div>'
@@ -697,6 +735,21 @@ def video_set_html(vids, depth):
     return f'<div class="video-set {" ".join(classes)}">' + "".join(items) + "</div>"
 
 def video_players(proj, depth):
+    yt_list = proj.get("youtube_videos") or []
+    if yt_list:
+        items = []
+        for v in yt_list:
+            label = html.escape(v["title"])
+            date = v.get("date_label") or ""
+            cap = f'<figcaption class="yt-title">{label}'
+            if date:
+                cap += f'<span class="yt-date">{html.escape(date)}</span>'
+            cap += "</figcaption>"
+            items.append(
+                f'<figure class="video-item">{yt_lite(v["youtube"], v["poster"], v["title"], depth)}{cap}</figure>'
+            )
+        n = len(yt_list)
+        return f'<div class="video-set count-{n} landscape">{"".join(items)}</div>'
     if proj.get("youtube"):
         return f'<div class="video-set count-1 wide">{yt_lite(proj["youtube"], proj["poster"], proj["title"], depth)}</div>'
     sections = proj.get("video_sections") or []
@@ -779,9 +832,9 @@ def project(side, cat, p, nxt):
             ("Category", cname),
             ("Role", p.get("role") or "Placeholder: role"),
             ("Tools", p["tools"] if "tools" in p else "Placeholder: tools"),
-            ("Timeline", p.get("timeline") or "Placeholder: timeline"),
+            ("Timeline", p["timeline"] if "timeline" in p else "Placeholder: timeline"),
             ("Deliverables", p.get("deliverables") or "Placeholder: deliverables"),
-            ("Year", p.get("year") or "Placeholder: year"),
+            ("Year", p["year"] if "year" in p else "Placeholder: year"),
         ]
         dl = []
         for label, value in details:

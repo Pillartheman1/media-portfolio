@@ -273,6 +273,11 @@ def home_section(side, depth=1):
             "I shoot, in language precise enough to work from and to judge the footage by.</p>"
             "<p>The mockup here is an example shot list for a generic luxury-brand product "
             "film — cloth, a fitting, a piece of jewelry — not a client from this site.</p>"
+            "<p>I also publish long-form videos that break down cinematography, sometimes "
+            "shot by shot: a visual evaluation of composition, lighting, and movement, "
+            "describing the footage precisely. "
+            '<a class="text-link" href="projects/kmc-cinematography-breakdowns.html">'
+            "See the cinematography breakdowns →</a></p>"
         )
         rows, frames, br = KMC_ROWS, KMC_STORYBOARD, KMC_BREAKDOWN
         href = "shot-listing/"
@@ -302,7 +307,7 @@ def page_body(side, page_head):
         copy = """
         <p>Before I pick up a camera I translate the creative intent of a piece into a written shot list and a script. I do this in Notion, for every project: the personal work on this side of the site, and the client work at <a class="text-link" href="../../media-co/">Klabunde Media Co.</a> The lists are prompt-ready shot descriptions: a precise visual description of each setup — framing, lens, movement, light, duration — written with enough attention to detail that I can execute it without guessing, and so the footage can be checked against what was planned.</p>
         <p>Visual storytelling, for me, starts on that page. A list is where shot composition gets decided, where camera movement is chosen for a reason, and where I can see whether a sequence will hold together. After the shoot I come back to the same document to evaluate the footage against a written spec: does the continuity hold, does the pacing match what I wrote, and do the shots still have temporal coherence when they sit next to each other.</p>
-        <p>The mockups below are an example shot list for a short personal narrative — a dusk departure, then a quiet return — not a project from this site. They show the level of detail I write to. For a look at a real pre-production file, including the full shot list and script, see <a class="text-link" href="../projects/i-deleted-instagram.html#pre-production">I deleted Instagram</a>.</p>
+        <p>The mockups below are an example shot list for a short personal narrative — a dusk departure, then a quiet return — not a project from this site. They show the level of detail I write to. For a look at a real pre-production file, including the full shot list and script, see <a class="text-link" href="../projects/i-deleted-instagram.html#pre-production">I deleted Instagram</a>. On the company side I also publish long-form cinematography breakdowns, including shot-by-shot visual evaluation of footage; those live on <a class="text-link" href="../../media-co/projects/kmc-cinematography-breakdowns.html">Klabunde Media Co. — Cinematography breakdowns</a>.</p>
         """
         rows, frames, br = DK_ROWS, DK_STORYBOARD, DK_BREAKDOWN
     else:
@@ -316,6 +321,7 @@ def page_body(side, page_head):
         <p>I write a hyper-detailed shot list and a script in Notion for every project, including the commercial and brand work on this side of the site. The point of the page is to turn creative intent into precise written direction: a precise visual description of shot composition and framing, what the lens is doing, how the camera moves, and what the light is doing at that time of day, written with the same attention to detail I want in the final frame.</p>
         <p>On a product film that written spec is what I shoot from, and what I use afterward to evaluate the footage — checking continuity from setup to setup, whether the pacing of a process sequence still holds, and whether the shots have temporal coherence when they are cut together. Visual storytelling here is often about material and light; the descriptions are written so they can be followed without a conversation filling in the gaps.</p>
         <p>The mockups below are an example shot list for a generic luxury-brand product film, mixing a tailoring process with jewelry macro work. They are not a record of a client from this site, and they do not use a client's name.</p>
+        <p>For examples of how I look at footage shot by shot after the fact — composition, lens, movement, lighting, and why a shot works — see <a class="text-link" href="../projects/kmc-cinematography-breakdowns.html">Cinematography breakdowns</a>, a set of long-form videos from the Klabunde Media Co. YouTube channel.</p>
         """
         rows, frames, br = KMC_ROWS, KMC_STORYBOARD, KMC_BREAKDOWN
 
