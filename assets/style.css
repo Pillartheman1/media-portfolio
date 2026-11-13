@@ -371,3 +371,16 @@ body.side-media-co .hero-logo{margin-bottom:30px}
 body.side-daniel .nav{gap:18px}
 body.side-daniel .nav a{white-space:nowrap;font-size:13px;letter-spacing:.03em}
 body.side-daniel .nav-wrap{gap:18px}
+
+/* Grouped video sections on a project page (e.g. Carmel Tailoring) */
+.video-section{margin:0 0 56px}
+.video-section:last-child{margin-bottom:0}
+.video-section h2{font-size:30px;margin:0 0 24px}
+.video-set.landscape.count-2,
+.video-set.landscape.count-4{grid-template-columns:repeat(2,minmax(300px,560px))}
+.video-frame.landscape{aspect-ratio:16/9}
+.video-section .video-set + .video-set{margin-top:36px}
+@media (max-width:900px){
+  .video-set.landscape.count-2,
+  .video-set.landscape.count-4{grid-template-columns:minmax(220px,1fr)}
+}

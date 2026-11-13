@@ -142,15 +142,15 @@ RX = dict(
 ZAIDI = dict(
     slug="zaidi-jewelers",
     title="Zaidi Jewelers",
-    subtitle="Short vertical films for a premium jewelry brand in Indianapolis.",
-    summary="Four short vertical videos for Zaidi Jewelers, a premium jewelry brand in Indianapolis.",
+    subtitle="Recurring content for a premium jewelry brand in Indianapolis.",
+    summary="A selection of ongoing work for Zaidi Jewelers, a regular client and a premium jewelry brand in Indianapolis.",
     category_name="Commercial &amp; Brand",
     client="Zaidi Jewelers",
     role="Placeholder: role",
     tools="DaVinci Resolve",
-    timeline="September 2026",
-    deliverables="Four short vertical videos",
-    year="2026",
+    timeline="Ongoing",
+    deliverables="A selection of vertical videos for the brand",
+    year="Ongoing",
     thumb="assets/video/zaidi-jewelers/thumb.jpg",
     videos=[
         dict(label="Pendants", src="assets/video/zaidi-jewelers/zaidi-1.mp4", poster="assets/video/zaidi-jewelers/zaidi-1.jpg"),
@@ -169,7 +169,7 @@ ZAIDI = dict(
         dict(label="Steering Wheel", src="assets/video/zaidi-jewelers/editron/steering-wheel.mp4", poster="assets/video/zaidi-jewelers/editron/steering-wheel.jpg"),
     ],
     stills=[],
-    overview="I made a set of short vertical videos for Zaidi Jewelers, a premium jewelry brand in Indianapolis, in September 2026. Four of them are here. One is a close look at pendants on a bust. Another puts the pieces on a person: earrings, a necklace, rings. A third follows a ring from a pencil sketch to the finished piece in its box. The last opens on a Zaidi Jewelers box and then shows the jewelry being worn.",
+    overview="Zaidi Jewelers, a premium jewelry brand in Indianapolis, is one of my most regular clients. I make recurring content for the brand, and the videos here are a selection of that work. One is a close look at pendants on a bust. Another puts the pieces on a person: earrings, a necklace, rings. A third follows a ring from a pencil sketch to the finished piece in its box. Another opens on a Zaidi Jewelers box and then shows the jewelry being worn.",
     challenge=None,
     approach=None,
     differently=None,
@@ -225,7 +225,47 @@ SHORT_FILMS = [YT_THANKS_MOM, YT_EVERY_AMERICAN, YT_IF_YOU_ARE_IN_PAIN, YT_LEFT_
 MOTION_GRAPHICS = [YT_DELETED_INSTAGRAM, YT_DOPAMINE_DETOX]
 FEATURED_DK = [YT_THANKS_MOM, YT_POV_PRODUCTION, YT_DELETED_INSTAGRAM]
 
-FEATURED_KMC = [ETHER, ZAIDI, LIV, MOON, NOOTRIMIND, RX]
+
+CARMEL = dict(
+    slug="carmel-tailoring",
+    title="Carmel Tailoring",
+    subtitle="Films for the most prestigious men's clothier and tailor in the Indianapolis area.",
+    summary="Cinematic, social, and interview videos for Carmel Tailoring, a men's clothier and tailor in Indianapolis, owned by Moon.",
+    category_name="Commercial &amp; Brand",
+    client="Carmel Tailoring",
+    role="Placeholder: role",
+    tools="DaVinci Resolve",
+    timeline="Placeholder: timeline",
+    deliverables="Ten videos: four landscape cinematic films, three vertical social cuts, and three interviews",
+    year="Placeholder: year",
+    thumb="assets/video/carmel-tailoring/thumb.jpg",
+    videos=[],
+    video_sections=[
+        dict(title="Cinematic films", videos=[
+            dict(label="The burgundy suit", src="assets/video/carmel-tailoring/vid-4.mp4", poster="assets/video/carmel-tailoring/vid-4.jpg", aspect="16/9"),
+            dict(label="Portraits", src="assets/video/carmel-tailoring/vid-1.mp4", poster="assets/video/carmel-tailoring/vid-1.jpg", aspect="16/9"),
+            dict(label="The shop", src="assets/video/carmel-tailoring/establishment.mp4", poster="assets/video/carmel-tailoring/establishment.jpg", aspect="16/9"),
+            dict(label="The fitting", src="assets/video/carmel-tailoring/process.mp4", poster="assets/video/carmel-tailoring/process.jpg", aspect="16/9"),
+        ]),
+        dict(title="Social", videos=[
+            dict(label="Fabrics", src="assets/video/carmel-tailoring/fabrics.mp4", poster="assets/video/carmel-tailoring/fabrics.jpg", aspect="9/16"),
+            dict(label="The jacket", src="assets/video/carmel-tailoring/suit.mp4", poster="assets/video/carmel-tailoring/suit.jpg", aspect="9/16"),
+            dict(label="Details", src="assets/video/carmel-tailoring/ct-1-1.mp4", poster="assets/video/carmel-tailoring/ct-1-1.jpg", aspect="9/16"),
+        ]),
+        dict(title="Interviews", videos=[
+            dict(label="The designer", src="assets/video/carmel-tailoring/landry-intro.mp4", poster="assets/video/carmel-tailoring/landry-intro.jpg", aspect="9/16"),
+            dict(label="Kay", src="assets/video/carmel-tailoring/testimonial.mp4", poster="assets/video/carmel-tailoring/testimonial.jpg", aspect="16/9"),
+            dict(label="Interview", src="assets/video/carmel-tailoring/interview.mp4", poster="assets/video/carmel-tailoring/interview.jpg", aspect="16/9"),
+        ]),
+    ],
+    stills=[],
+    overview="I made a set of videos for Carmel Tailoring, the most prestigious men's clothier and tailor in the Indianapolis area, owned by Moon. Four of them are landscape cinematic films. One follows a man in a burgundy suit, from a close look at his watch through an interior with bookshelves and a painting. Another moves with a man in tailored suits: walking through glass doors, sitting in a paneled room, sitting outside. A third stays in the shop — jackets on the rack, a suited mannequin, hanging cloth. The fourth is about the craft: a fitting with a tape measure, and a card showing stitching samples, including standard stitching and picked stitching.\n\nThree short verticals look at the materials and the clothes on a person: fabric labels and swatch books, a man putting on a plaid jacket, and close details of a jacket cuff, with a shot of a man in a suit by a pond.\n\nThe interviews include a vertical piece with a menswear designer at Carmel Tailoring; a landscape film in which Kay introduces herself as the owner and founder and talks about the people she gets to dress; and a longer sit-down in the shop with several people.",
+    challenge=None,
+    approach=None,
+    differently=None,
+)
+
+FEATURED_KMC = [ETHER, ZAIDI, LIV, CARMEL, NOOTRIMIND, RX]
 
 SIDES = {
  "daniel": dict(
@@ -258,7 +298,7 @@ SIDES = {
    other="daniel",
    cats=[
     ("commercial", "Commercial &amp; Brand", "Product films, brand spots and campaigns, with notes on the brief, the constraints and the decisions behind each cut.",
-     [ETHER, ZAIDI, NOOTRIMIND]),
+     [ETHER, ZAIDI, CARMEL, NOOTRIMIND]),
     ("social", "Social Content", "Short-form vertical and feed content: hooks, pacing for the platform, and series built to be consistent week to week.",
      [LIV, MOON, RX]),
    ],
@@ -554,30 +594,53 @@ def yt_lite(yt_id, poster, title, depth):
         f'</button></div>'
     )
 
-def video_players(proj, depth):
+def video_set_html(vids, depth):
     r = rel(depth)
-    if proj.get("youtube"):
-        return f'<div class="video-set count-1 wide">{yt_lite(proj["youtube"], proj["poster"], proj["title"], depth)}</div>'
-    vids = proj.get("videos") or []
-    if not vids:
-        return video_slot("Placeholder: project video", "Swap in the embed or MP4 for this project")
     n = len(vids)
     items = []
     for v in vids:
         label = html.escape(v["label"])
-        src = r + v["src"]
+        src_v = r + v["src"]
         poster = r + v["poster"]
         aspect = v.get("aspect") or "9/16"
-        frame_cls = "vertical" if aspect == "9/16" else ("ar-4-3" if aspect == "4/3" else "")
+        frame_cls = "vertical" if aspect == "9/16" else ("ar-4-3" if aspect == "4/3" else "landscape")
         cap = f"<figcaption>{label}</figcaption>" if n > 1 else ""
         items.append(
             f'<figure class="video-item">'
             f'<div class="video-frame {frame_cls}" data-slot="video">'
-            f'<video src="{src}" poster="{poster}" controls preload="none" playsinline></video>'
+            f'<video src="{src_v}" poster="{poster}" controls preload="none" playsinline></video>'
             f'</div>{cap}</figure>'
         )
-    wide = " wide" if n == 1 and (vids[0].get("aspect") or "9/16") != "9/16" else ""
-    return f'<div class="video-set count-{n}{wide}">' + "".join(items) + "</div>"
+    aspects = [v.get("aspect") or "9/16" for v in vids]
+    classes = [f"count-{n}"]
+    if all(a == "16/9" for a in aspects) or (n == 1 and aspects[0] not in ("9/16", "4/3")):
+        classes.append("landscape")
+        if n == 1:
+            classes.append("wide")
+    return f'<div class="video-set {" ".join(classes)}">' + "".join(items) + "</div>"
+
+def video_players(proj, depth):
+    if proj.get("youtube"):
+        return f'<div class="video-set count-1 wide">{yt_lite(proj["youtube"], proj["poster"], proj["title"], depth)}</div>'
+    sections = proj.get("video_sections") or []
+    if sections:
+        blocks = []
+        for sec in sections:
+            heading = html.escape(sec["title"])
+            vids = sec["videos"]
+            verts = [v for v in vids if (v.get("aspect") or "9/16") == "9/16"]
+            other = [v for v in vids if (v.get("aspect") or "9/16") != "9/16"]
+            body = ""
+            if verts and other:
+                body = video_set_html(verts, depth) + video_set_html(other, depth)
+            else:
+                body = video_set_html(vids, depth)
+            blocks.append(f'<div class="video-section"><h2>{heading}</h2>{body}</div>')
+        return "".join(blocks)
+    vids = proj.get("videos") or []
+    if not vids:
+        return video_slot("Placeholder: project video", "Swap in the embed or MP4 for this project")
+    return video_set_html(vids, depth)
 
 
 EDITRON_URL = "https://pillartheman1.github.io/engineering-portfolio/projects/editron/"
