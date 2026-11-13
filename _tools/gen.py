@@ -620,12 +620,52 @@ def home(side):
       <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="#shot-listing">More on how I write a shot list →</a></p>
       <p>Every project here has its own page with the role, the tools, and the full story of how it came together, including what I'd do differently next time.</p>
       <a class="text-link" href="about/">More about me →</a>"""
+        intro_extra = ""
         extra = ""
     else:
-        intro_h, intro = "Video that does a job.", """<p class="ph-text">Placeholder: short company intro. What Klabunde Media Co. makes, who it's for (described generally, no client names), and how the work runs, including ongoing client relationships.</p>
-      <p>I write a detailed shot list and script for every project, personal and client. <a class="text-link" href="#shot-listing">More on how I write a shot list →</a></p>
+        intro_h, intro = "Video that does a job.", """<p>Cinematography is how I use picture and sound to leave a viewer with a particular feeling. I get there by working with how people perceive a scene and how they react to what they see and hear. Recording what is in front of the lens is part of that work, which I treat as a science and as an art form.</p>"""
+        intro_extra = """
+    <ol class="process-stages">
+      <li class="process-stage">
+        <div class="process-num" aria-hidden="true">01</div>
+        <h3>Pre-production</h3>
+        <p>Before a shoot I get the plan in place, including the detailed shot list and script I write for every project, personal and client.</p>
+        <ul>
+          <li>Outlines</li>
+          <li>Scripts</li>
+          <li>Shot lists</li>
+          <li>Location scouting</li>
+          <li>Coordination</li>
+        </ul>
+        <a class="text-link" href="#shot-listing">More on how I write a shot list →</a>
+      </li>
+      <li class="process-stage">
+        <div class="process-num" aria-hidden="true">02</div>
+        <h3>Production</h3>
+        <p>On set I film the piece, direct talent, and set up lighting and audio rigs.</p>
+        <ul>
+          <li>Filming on set</li>
+          <li>Directing talent</li>
+          <li>Lighting and audio rigs</li>
+        </ul>
+      </li>
+      <li class="process-stage">
+        <div class="process-num" aria-hidden="true">03</div>
+        <h3>Post-production</h3>
+        <p>After the shoot I take the footage through the edit, the sound, the grade, and any motion effects.</p>
+        <ul>
+          <li>Editing</li>
+          <li>Sound design</li>
+          <li>Color grading</li>
+          <li>Motion effects</li>
+        </ul>
+        <a class="text-link" href="#reel">See the grading and sound design showreels →</a>
+      </li>
+    </ol>
+    <div class="prose intro-follow">
       <p>Each page covers the work for that client, including ongoing relationships, with notes on the constraints and the decisions behind the cuts.</p>
-      <a class="text-link" href="about/">About the company →</a>"""
+      <a class="text-link" href="about/">About the company →</a>
+    </div>"""
         extra = ""
     x_cta = f"""<section class="x-cta"><div class="wrap x-cta-inner">
     <div class="x-cta-mark">{X_SVG}</div>
@@ -647,9 +687,12 @@ def home(side):
 </section>
 {x_cta if side == "daniel" else ""}
 {home_reel_section(side, cfg, r)}
-<section class="section intro"><div class="wrap intro-grid">
+<section class="section intro"><div class="wrap">
+    <div class="intro-grid">
     <div><div class="eyebrow">About the work</div><h2>{intro_h}</h2></div>
     <div class="prose">{intro}</div>
+    </div>
+    {intro_extra}
 </div></section>
 <section class="section"><div class="wrap">
     <div class="section-head"><div class="eyebrow">{feat_eyebrow}</div><h2>{feat_heading}</h2></div>

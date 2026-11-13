@@ -531,4 +531,58 @@ body.side-media-co .sl-frame.tone-atelier .sl-frame-art{color:#8eb4c6}
   .showreel h2{font-size:26px}
 }
 
+
 #cinematography-breakdowns,#short-form{scroll-margin-top:96px}
+
+/* KMC home: three-stage process under About the work */
+.process-stages{
+  list-style:none;
+  margin:56px 0 40px;
+  padding:0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  align-items:stretch;
+}
+.process-stage{
+  display:flex;
+  flex-direction:column;
+  margin:0;
+  padding:28px 26px 26px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-top:2px solid var(--accent);
+}
+body.side-media-co .process-stage{
+  background:linear-gradient(180deg,rgba(66,86,94,.28),rgba(44,50,56,.18) 38%,var(--surface) 70%);
+  border-color:rgba(95,168,200,.18);
+  border-top-color:var(--accent);
+}
+.process-num{
+  font:400 26px/1 var(--serif);
+  color:var(--accent);
+  letter-spacing:.06em;
+  margin:0 0 14px;
+}
+.process-stage h3{font-size:26px;margin:0 0 12px}
+.process-stage p{font-size:15.5px;line-height:1.6;color:var(--muted);margin:0 0 18px}
+@media (min-width:901px){
+  .process-stage p{min-height:6.4em}
+}
+.process-stage ul{list-style:none;margin:0 0 18px;padding:0}
+.process-stage li{
+  font-size:14px;
+  letter-spacing:.03em;
+  color:var(--text);
+  padding:8px 0;
+  border-top:1px solid var(--line);
+}
+.process-stage .text-link{margin-top:auto;align-self:flex-start}
+.intro-follow{margin:0;max-width:720px}
+.intro-follow p{margin-bottom:1.1em}
+
+@media (max-width:900px){
+  .process-stages{grid-template-columns:1fr;gap:16px;margin:36px 0 28px}
+  .process-stage{padding:22px 20px 20px}
+  .process-stage h3{font-size:24px}
+}
