@@ -229,15 +229,15 @@ FEATURED_DK = [YT_THANKS_MOM, YT_POV_PRODUCTION, YT_DELETED_INSTAGRAM]
 CARMEL = dict(
     slug="carmel-tailoring",
     title="Carmel Tailoring",
-    subtitle="Films for the most prestigious men's clothier and tailor in the Indianapolis area.",
-    summary="Cinematic, social, and interview videos for Carmel Tailoring, a men's clothier and tailor in Indianapolis, owned by Moon.",
+    subtitle="Recurring content for the most prestigious men's clothier and tailor in the Indianapolis area.",
+    summary="A selection of ongoing work for Carmel Tailoring, a consistent client and a men's clothier and tailor in Indianapolis, owned by Moon.",
     category_name="Commercial &amp; Brand",
     client="Carmel Tailoring",
     role="Placeholder: role",
     tools="DaVinci Resolve",
-    timeline="Placeholder: timeline",
-    deliverables="Ten videos: four landscape cinematic films, three vertical social cuts, and three interviews",
-    year="Placeholder: year",
+    timeline="Ongoing",
+    deliverables="A selection of cinematic, social, and interview videos for the brand",
+    year="Ongoing",
     thumb="assets/video/carmel-tailoring/thumb.jpg",
     videos=[],
     video_sections=[
@@ -259,7 +259,7 @@ CARMEL = dict(
         ]),
     ],
     stills=[],
-    overview="I made a set of videos for Carmel Tailoring, the most prestigious men's clothier and tailor in the Indianapolis area, owned by Moon. Four of them are landscape cinematic films. One follows a man in a burgundy suit, from a close look at his watch through an interior with bookshelves and a painting. Another moves with a man in tailored suits: walking through glass doors, sitting in a paneled room, sitting outside. A third stays in the shop — jackets on the rack, a suited mannequin, hanging cloth. The fourth is about the craft: a fitting with a tape measure, and a card showing stitching samples, including standard stitching and picked stitching.\n\nThree short verticals look at the materials and the clothes on a person: fabric labels and swatch books, a man putting on a plaid jacket, and close details of a jacket cuff, with a shot of a man in a suit by a pond.\n\nThe interviews include a vertical piece with a menswear designer at Carmel Tailoring; a landscape film in which Kay introduces herself as the owner and founder and talks about the people she gets to dress; and a longer sit-down in the shop with several people.",
+    overview="Carmel Tailoring, the most prestigious men's clothier and tailor in the Indianapolis area, owned by Moon, is one of my most consistent clients. I make recurring content for the brand, and the videos here are a selection of that work.\n\nAmong them are landscape cinematic films. One follows a man in a burgundy suit, from a close look at his watch through an interior with bookshelves and a painting. Another moves with a man in tailored suits: walking through glass doors, sitting in a paneled room, sitting outside. A third stays in the shop — jackets on the rack, a suited mannequin, hanging cloth. Another is about the craft: a fitting with a tape measure, and a card showing stitching samples, including standard stitching and picked stitching.\n\nShort verticals look at the materials and the clothes on a person: fabric labels and swatch books, a man putting on a plaid jacket, and close details of a jacket cuff, with a shot of a man in a suit by a pond.\n\nThe interviews include a vertical piece with a menswear designer at Carmel Tailoring; a landscape film in which Kay introduces herself as the owner and founder and talks about the people she gets to dress; and a longer sit-down in the shop with several people.",
     challenge=None,
     approach=None,
     differently=None,
@@ -500,8 +500,8 @@ def home(side):
       <a class="text-link" href="about/">More about me →</a>"""
         extra = ""
     else:
-        intro_h, intro = "Video that does a job.", """<p class="ph-text">Placeholder: short company intro. What Klabunde Media Co. makes, who it's for (described generally, no client names), and how a project runs.</p>
-      <p>Each case study covers the brief, the deliverables and how the edit solved the problem.</p>
+        intro_h, intro = "Video that does a job.", """<p class="ph-text">Placeholder: short company intro. What Klabunde Media Co. makes, who it's for (described generally, no client names), and how the work runs, including ongoing client relationships.</p>
+      <p>Each page covers the work for that client, including ongoing relationships, with notes on the constraints and the decisions behind the cuts.</p>
       <a class="text-link" href="about/">About the company →</a>"""
         extra = ""
     x_cta = f"""<section class="x-cta"><div class="wrap x-cta-inner">
@@ -819,7 +819,7 @@ def media_pages():
       <h2>The company</h2>
       <p class="ph-text">Placeholder: company story. When it started, what it makes, and the kinds of businesses it works with (described generally, no client names).</p>
       <h2>How we work</h2>
-      <p class="ph-text">Placeholder: approach, communication, review rounds and turnaround.</p>
+      <p class="ph-text">Placeholder: approach, communication, review, and how ongoing work is handled.</p>
       <h2>Who's behind it</h2>
       <p>Klabunde Media Co. is run by Daniel Klabunde. <a class="text-link" href="../../daniel/">See Daniel's personal work →</a></p>
     </div>
